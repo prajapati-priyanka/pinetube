@@ -4,13 +4,13 @@ import "./Home.css";
 
 const Home = () => {
   return (
-    <header className="header-wrapper flex-container">
-      <section className="header-left flex-container">
+    <nav className="nav-wrapper flex-container">
+      <section className="nav-left flex-container">
         <HiOutlineMenu className="menu-bar lg-text"/>
         <img src="../assets/logo.png" className="logo-img" alt="" />
        
       </section>
-      <section className="header-middle">
+      <section className="nav-middle">
       <input
           type="search"
           placeholder="Search Product"
@@ -20,11 +20,11 @@ const Home = () => {
           <BsSearch />
         </button>
       </section>
-      <section className="header-right flex-container">
+      <section className="nav-right flex-container">
           <HiOutlineUser className="user-icon lg-text"/>
          <p className="user-login md-text">Login</p>
       </section>
-    </header>
+    </nav>
   );
 };
 

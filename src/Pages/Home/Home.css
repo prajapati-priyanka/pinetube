@@ -1,4 +1,4 @@
-.header-wrapper{
+.nav-wrapper{
     background-color: var(--white-color);
     padding: 1rem 2rem;
     justify-content: space-between;
@@ -6,25 +6,25 @@
 
    
 }
-.header-wrapper .header-left {
+.nav-wrapper .nav-left {
     gap: 2rem;
 }
-.header-wrapper .header-left .menu-bar{
+.nav-wrapper .nav-left .menu-bar{
     cursor: pointer;
 }
 
-.header-wrapper .header-left .logo-img{
-   width: 140px;
+.nav-wrapper .nav-left .logo-img{
+   width: 135px;
     
 }
-.header-middle {
+.nav-middle {
     padding: 0;
     display: flex;
     width: 30%;
     border: 1px solid var(--lynx-gray-color);
     border-radius: 0.5rem;
   }
-  .header-middle .btn-search {
+  .nav-middle .btn-search {
     width: 20%;
     padding: 10px;
     border-left: 0;
@@ -32,17 +32,17 @@
     cursor: pointer;
     outline: none;
     border-radius: 0 0.5rem 0.5rem 0;
-    /* background-color: transparent; */
+  
 }
 
-  .header-middle .input-search {
+  .nav-middle .input-search {
     width: 100%;
     padding: 10px;
     border-radius: 0.5rem 0 0 0.5rem;
     margin: 0;
 }
 
-.header-right{
+.nav-right{
     color: var(--text-color);
     gap: 1rem;
 }
