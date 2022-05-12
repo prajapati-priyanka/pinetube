@@ -13,3 +13,10 @@
 img{
     cursor: pointer;
 }
+li{
+    list-style: none
+}
+
+:root{
+    --primary-color: #c00;
+}
