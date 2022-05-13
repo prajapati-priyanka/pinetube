@@ -1,0 +1,41 @@
+.video-card .thumbnail {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.video-card .flex-container {
+  align-items: flex-start;
+  margin-top: 0.8rem;
+}
+.video-card .dot-btn{
+  color: var(--black-color);
+  align-self: flex-start;
+}
+.video-card .flex-container img {
+  width: 35px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+.video-info {
+  color: var(--link-color);
+  font-weight: var(--semibold-font);
+  font-size: 13px;
+}
+.video-info a {
+  color: var(--black-color);
+
+  font-size: 13px;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.video-info p {
+  margin: 0.3rem 0;
+}
+
+/* style from CL */
+
+a {
+  padding: 0;
+}
+
+/*  ****     */
