@@ -1,10 +1,15 @@
 import "./App.css";
-import {Home} from "./Pages/Home/Home.jsx";
+import {Home, SingleVideoPage, PlaylistPage, SinglePlaylistPage, NotFound } from "./Pages";
+
 
 function App() {
   return (
     <div className="App">
        <Home />
+       {/* <SingleVideoPage /> */}
+       {/* <PlaylistPage /> */}
+       {/* <SinglePlaylistPage /> */}
+       {/* <NotFound /> */}
     </div>
   );
 }
