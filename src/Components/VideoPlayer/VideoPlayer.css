@@ -1,0 +1,73 @@
+.react-player-wrapper {
+  position: relative;
+  padding-top: 31%; /* Player ratio: 100 / (1280 / 720) */
+  flex-basis: 65%;
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.react-player-wrapper .video-hashtags a {
+  color: var(--hashtag-color);
+  font-size: 13px;
+  padding-right: 0.3rem;
+}
+.react-player-wrapper .video-title {
+  margin-top: 0.3rem;
+  font-size: 2rem;
+}
+
+.video-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.video-stats .video-views-info {
+  font-size: 1.4rem;
+  color: var(--link-color);
+}
+.video-stats .video-user-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+
+.video-creator {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.video-creator .video-channel {
+  flex: 1;
+}
+.video-creator img {
+  width: 6rem;
+  border-radius: 50%;
+  margin-right: 1.5rem;
+}
+
+.video-creator .video-channel .channel-name {
+  color: var(--black-color);
+  font-weight: var(--semibold-font);
+}
+.video-creator .video-channel .channel-subscribers {
+  font-size: 1.3rem;
+  padding-top: 0.3rem;
+  color: var(--link-color);
+}
+
+.video-comments .add-comment {
+  display: flex;
+  justify-content: space-between;
+}
+.add-comment input {
+  border: 1px solid var(--lynx-gray-color);
+}
