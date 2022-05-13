@@ -13,10 +13,18 @@
 img{
     cursor: pointer;
 }
+
 li{
     list-style: none
+}
+.divider{
+    border: 0;
+    margin: 1rem 0;
+    height: 1px;
+    background-color: var(--lynx-gray-color)
 }
 
 :root{
     --primary-color: #c00;
+    --hashtag-color: #065fd4;
 }
