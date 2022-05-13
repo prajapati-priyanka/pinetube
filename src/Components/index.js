@@ -1,3 +1,5 @@
-export {Navbar} from "./Navbar/Navbar.jsx";
-export {SideNav} from "./SideNav/SideNav.jsx";
-export {VideoContent} from "./VideoContent/VideoContent.jsx"
+export {Navbar} from "./Navbar/Navbar";
+export {SideNav} from "./SideNav/SideNav";
+export {VideoCard} from "./VideoCard/VideoCard";
+export{HorizontalVideoCard} from "./HorizontalVideoCard/HorizontalVideoCard";
+export {VideoPlayer} from "./VideoPlayer/VideoPlayer"
