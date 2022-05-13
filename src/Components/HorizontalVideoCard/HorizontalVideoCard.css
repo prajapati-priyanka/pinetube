@@ -1,0 +1,15 @@
+.horizontal-video-card {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  gap: 1rem;
+}
+
+.horizontal-video-card .thumbnail {
+  width: 16rem;
+  background-color: blue;
+}
+.horizontal-video-card .video-info {
+  flex-basis: 90%;
+  padding: 1rem 1rem 1rem 0;
+}
