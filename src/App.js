@@ -7,8 +7,8 @@ function App() {
     <div className="App">
        {/* <Home /> */}
        {/* <SingleVideoPage /> */}
-       {/* <PlaylistPage /> */}
-       <SinglePlaylistPage />
+       <PlaylistPage />
+       {/* <SinglePlaylistPage /> */}
        {/* <NotFound /> */}
     </div>
   );
