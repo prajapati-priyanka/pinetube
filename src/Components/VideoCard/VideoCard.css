@@ -7,7 +7,7 @@
   align-items: flex-start;
   margin-top: 0.8rem;
 }
-.video-card .dot-btn{
+.dot-btn{
   color: var(--black-color);
   align-self: flex-start;
 }
@@ -23,7 +23,6 @@
 }
 .video-info a {
   color: var(--black-color);
-
   font-size: 13px;
   display: block;
   margin-bottom: 0.5rem;
