@@ -1,0 +1,32 @@
+
+.playlist-left-content{
+    max-width: 350px;
+    flex-shrink: 0;
+ 
+}
+
+.playlist-right-content{
+    flex: 1;
+   
+}
+
+.card-with-text-overlay{
+    opacity: 1;
+}
+.text-overlay{
+    top: 85%;
+    background-color: var(--black-color);
+    color: var(--white-color);
+    font-weight: var(--regular-font);
+
+}
+
+.playlist-left-content .playlist-info{
+    margin-top: 1rem;
+   
+}
+.playlist-info .playlist-updated-time{
+    padding-top: 0.5rem;
+    font-size: 13px;
+    color: var(--link-color);
+}
