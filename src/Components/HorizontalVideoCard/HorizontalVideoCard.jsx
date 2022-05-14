@@ -3,7 +3,7 @@ import {BiDotsVerticalRounded} from  "react-icons/bi";
 
 const HorizontalVideoCard = ({img, videoCreator, likes, views, desc}) =>{
     return(
-        <div className="video-card horizontal-video-card">
+        <div className="horizontal-video-card">
         <a href="">
           <img
             src={img}
