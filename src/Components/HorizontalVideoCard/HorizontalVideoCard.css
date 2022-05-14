@@ -5,9 +5,9 @@
   gap: 1rem;
 }
 
-.horizontal-video-card .thumbnail {
-  width: 16rem;
-  background-color: blue;
+.horizontal-video-card img {
+  width: 12rem;
+
 }
 .horizontal-video-card .video-info {
   flex-basis: 90%;
