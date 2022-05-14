@@ -1,18 +1,21 @@
 import "./VideoPlayer.css";
 import { MdPlaylistAdd, MdOutlineWatchLater } from "react-icons/md";
 import { AiOutlineLike } from "react-icons/ai";
+const VideoPlayer = () => {
+  return (
+    <div className="player-wrapper flex-container">
+      <div className="iframe-wrapper">
+        <iframe
+          className="video-player"
+          src={`https://www.youtube.com/embed/m6LOf2Gvjxk`}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
 
-import ReactPlayer from "react-player";
-
-const VideoPlayer = () =>{
-    return(
-        <div className="react-player-wrapper">
-        <ReactPlayer
-          url="https://youtu.be/m6LOf2Gvjxk"
-          controls
-          className="react-player"
-          width="100%"
-        />
+      <div className="video-details">
         <div className="video-hashtags">
           <a href="">#Coding</a>
           <a href="">#Programming</a>
@@ -25,11 +28,7 @@ const VideoPlayer = () =>{
         <div className="video-stats">
           <p className="video-views-info">21M Views | 2 days ago</p>
           <div className="video-user-action">
-            <a
-              href="/"
-              className="side-nav-link flex-container"
-              title="Liked"
-            >
+            <a href="/" className="side-nav-link flex-container" title="Liked">
               <AiOutlineLike className="side-nav-icon" />
               <span className="side-nav-icon-name">Liked</span>
             </a>
@@ -56,14 +55,12 @@ const VideoPlayer = () =>{
         <div className="divider"></div>
 
         <div className="video-creator">
-          <img src="./assets/channel/channel.jpg" />
+          <img src="./assets/channel/channel.jpg" alt="" />
           <div className="video-channel">
             <p className="channel-name md-text">The Kapil Sharma Show</p>
             <span className="channel-subscribers">50K subscribers</span>
           </div>
-          <button className="btn btn-primary btn-subscribe">
-            SUBSCRIBE
-          </button>
+          <button className="btn btn-primary btn-subscribe">SUBSCRIBE</button>
         </div>
         <div className="divider"></div>
 
@@ -79,7 +76,8 @@ const VideoPlayer = () =>{
           </div>
         </div>
       </div>
-    )
-}
+    </div>
+  );
+};
 
-export {VideoPlayer}
+export { VideoPlayer };
