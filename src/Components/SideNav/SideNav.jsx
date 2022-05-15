@@ -6,35 +6,36 @@ import {
 import { AiOutlineLike } from "react-icons/ai";
 import { BiHistory } from "react-icons/bi";
 import "./SideNav.css";
+import {Link} from "react-router-dom";
 
 const SideNav = ({sideNavShrinked}) => {
   return (
     <div className={`side-nav ${sideNavShrinked ? "shrinked" : ""}`}>
       <div className="side-nav-list md-text">
-        <a href="/" className="side-nav-link flex-container" title="Explore">
+        <Link to="/explore" className="side-nav-link flex-container" title="Explore">
           <MdOutlineExplore className="side-nav-icon" />
           <span className="side-nav-icon-name">Explore</span>
-        </a>
+        </Link>
 
-        <a href="/" className="side-nav-link flex-container"  title="Playlist">
+        <Link to="/playlists" className="side-nav-link flex-container"  title="Playlist">
           <MdPlaylistAdd className="side-nav-icon"/>
           <span className="side-nav-icon-name">Playlists</span>
-        </a>
+        </Link>
 
-        <a href="/" className="side-nav-link flex-container" title="Watch Later" >
+        <Link to="/watchlater" className="side-nav-link flex-container" title="Watch Later" >
           <MdOutlineWatchLater className="side-nav-icon" />
           <span className="side-nav-icon-name">Watch Later</span>
-        </a>
+        </Link>
 
-        <a href="/" className="side-nav-link flex-container" title="Liked">
+        <Link to="/liked" className="side-nav-link flex-container" title="Liked">
           <AiOutlineLike className="side-nav-icon" />
           <span className="side-nav-icon-name">Liked</span>
-        </a>
+        </Link>
 
-        <a href="/" className="side-nav-link flex-container" title="History">
+        <Link to="/history" className="side-nav-link flex-container" title="History">
           <BiHistory className="side-nav-icon" />
           <span className="side-nav-icon-name">History</span>
-        </a>
+        </Link>
       </div>
     </div>
   );
