@@ -2,6 +2,7 @@ import "./VideoCard.css"
 import {BiDotsVerticalRounded} from  "react-icons/bi";
 import { VideoMenu } from "./VideoMenu";
 import { useState } from "react";
+import {Link} from "react-router-dom"
 
 const VideoCard=({img,channelImg, desc, views, likes, videoCreator,isPlaylistModalVisible, setIsPlaylistModalVisible})=>{
    
@@ -10,11 +11,11 @@ const VideoCard=({img,channelImg, desc, views, likes, videoCreator,isPlaylistMod
 
     return(
         <div className="video-card">
-        <a href=""><img src={img} alt="" className="thumbnail" /></a>
+        <Link to="/singlevideopage"><img src={img} alt="" className="thumbnail" /></Link>
         <div className="flex-container">
             <img src={channelImg} alt="" />
             <div className="video-info">
-                <a href="">{desc}</a>
+                <Link to="/singlevideopage">{desc}</Link>
                 <p>{videoCreator}</p>
                 <p>{views} | {likes}</p>
             </div>
