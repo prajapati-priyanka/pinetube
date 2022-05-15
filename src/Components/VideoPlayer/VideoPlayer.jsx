@@ -33,20 +33,12 @@ const VideoPlayer = () => {
               <span className="side-nav-icon-name">Liked</span>
             </div>
 
-            <div
-              href="/"
-              className="flex-container"
-              title="Watch Later"
-            >
+            <div className="flex-container" title="Watch Later">
               <MdOutlineWatchLater className="side-nav-icon" />
               <span className="side-nav-icon-name">Watch Later</span>
             </div>
 
-            <div
-          
-              className="flex-container"
-              title="Playlist"
-            >
+            <div className="flex-container" title="Playlist">
               <MdPlaylistAdd className="side-nav-icon" />
               <span className="side-nav-icon-name">Playlists</span>
             </div>
