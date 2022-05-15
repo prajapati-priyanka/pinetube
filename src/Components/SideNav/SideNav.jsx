@@ -7,8 +7,12 @@ import { AiOutlineLike } from "react-icons/ai";
 import { BiHistory } from "react-icons/bi";
 import "./SideNav.css";
 import {Link} from "react-router-dom";
+import { useSideNav } from "../../context";
 
-const SideNav = ({sideNavShrinked}) => {
+const SideNav = () => {
+ 
+  const {sideNavShrinked} = useSideNav()
+  
   return (
     <div className={`side-nav ${sideNavShrinked ? "shrinked" : ""}`}>
       <div className="side-nav-list md-text">

@@ -1,8 +1,11 @@
 import { HiOutlineMenu,HiOutlineUser } from "react-icons/hi";
 import { BsSearch  } from "react-icons/bs";
 import "./Navbar.css"
+import { useSideNav } from "../../context";
 
-const Navbar = ({sideNavShrinked, setSideNavShrinked}) =>{
+const Navbar = () =>{
+
+  const {setSideNavShrinked} = useSideNav();
     return(
         <nav className="nav-wrapper flex-container">
         <section className="nav-left flex-container">
