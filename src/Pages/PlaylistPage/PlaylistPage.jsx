@@ -2,8 +2,15 @@ import "./PlaylistPage.css";
 import { MdPlaylistAdd} from "react-icons/md";
 import { BsTrash} from "react-icons/bs";
 import {Navbar, SideNav} from "../../Components"
+import { useNavigate } from "react-router-dom";
 
 const PlaylistPage = () =>{
+   
+    const navigate= useNavigate()
+
+    const playlistPageHandler = () =>{
+        navigate("/singleplaylistpage")
+    }
     return(
         <>
         <Navbar />
@@ -11,7 +18,7 @@ const PlaylistPage = () =>{
        
        <div className="main-container">
            <h3 className="page-title">Playlist</h3>
-           <div className="playlist flex-container">
+           <div className="playlist flex-container" onClick={playlistPageHandler}>
               
                 
                    <MdPlaylistAdd className="playlist-icon x-lg-text"/>
@@ -23,9 +30,7 @@ const PlaylistPage = () =>{
                         <BsTrash />
                    </button>
 
-                  
-              
-           </div>
+         </div>
            <div className="playlist flex-container">
               
                 
