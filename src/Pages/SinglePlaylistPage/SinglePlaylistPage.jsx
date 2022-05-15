@@ -19,7 +19,7 @@ const SinglePlaylistPage = () =>{
       </div>
        
        <div className="playlist-info">
-         <h2 className="playlist-name">Hello</h2>
+         <h3 className="playlist-name">Hello</h3>
          <p className="playlist-updated-time">Updated on May 10,2022</p>
        </div>
 
@@ -28,7 +28,7 @@ const SinglePlaylistPage = () =>{
       <div className="video-creator">
           <img src="./assets/channel/channel.jpg" alt="" />
           <div className="video-channel">
-            <p className="channel-name md-text">The Kapil Sharma Show</p>
+            <p className="channel-name md-text">Priyanka Prajapati</p>
             <span className="channel-subscribers">50K subscribers</span>
           </div>
         </div> 
