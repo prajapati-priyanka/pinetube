@@ -1,6 +1,8 @@
 import "./VideoPlayer.css";
 import { MdPlaylistAdd, MdOutlineWatchLater } from "react-icons/md";
 import { AiOutlineLike } from "react-icons/ai";
+import { Link } from "react-router-dom";
+
 const VideoPlayer = () => {
   return (
     <div className="player-wrapper flex-container">
@@ -17,10 +19,10 @@ const VideoPlayer = () => {
 
       <div className="video-details">
         <div className="video-hashtags">
-          <a href="">#Coding</a>
-          <a href="">#Programming</a>
-          <a href="">#Javascript</a>
-          <a href="">#Beginners</a>
+          <Link to="">#Coding</Link>
+          <Link to="">#Programming</Link>
+          <Link to="">#Javascript</Link>
+          <Link to="">#Beginners</Link>
         </div>
         <h4 className="video-title">
           The Kapil Sharma Show | Baisakhi Special | Comedy Circus
