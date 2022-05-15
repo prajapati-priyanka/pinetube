@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Navbar,SideNav,VideoContent } from "../../Components";
+import { Navbar,SideNav} from "../../Components";
+import { VideoListingPage } from "../VideoListingPage/VideoListingPage";
 import "./Home.css";
 
 const Home = () => {
@@ -8,7 +9,7 @@ const Home = () => {
          <>
          <Navbar sideNavShrinked={sideNavShrinked} setSideNavShrinked={setSideNavShrinked}/>
          <SideNav sideNavShrinked={sideNavShrinked} setSideNavShrinked={setSideNavShrinked}/>
-         <VideoContent sideNavShrinked={sideNavShrinked} />
+         <VideoListingPage sideNavShrinked={sideNavShrinked} />
          </>
   );
 };
