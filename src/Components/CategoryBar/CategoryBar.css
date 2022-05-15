@@ -1,0 +1,16 @@
+.category-bar{
+    padding: 1.5rem 0;
+    gap: 1rem;
+    border-top: 1px solid var(--lynx-gray-color) ;
+    border-bottom: 1px solid var(--lynx-gray-color);
+    flex-wrap: wrap;
+}
+.filter-category{
+    color: var(--black-color);
+    border: 1px solid var(--lynx-gray-color);
+    border-radius: 2rem;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.filter-category:hover{
+   background-color:  rgba(0, 0, 0, 0.1);
+}
