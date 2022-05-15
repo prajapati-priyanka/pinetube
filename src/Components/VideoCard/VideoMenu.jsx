@@ -1,6 +1,5 @@
 import { MdPlaylistAdd,MdOutlineWatchLater} from "react-icons/md";
 import { AiOutlineLike} from "react-icons/ai";
-import { PlaylistModal } from "../Modal/PlaylistModal";
 
 const VideoMenu = ({setIsPlaylistModalVisible, setIsVideoMenuVisible})=>{
 
