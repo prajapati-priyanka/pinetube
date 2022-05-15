@@ -1,8 +1,11 @@
-import { VideoCard } from "../../Components";
+import { PlaylistModal, VideoCard } from "../../Components";
 import "./VideoListingPage.css";
+import { useState } from "react";
 
 const VideoListingPage = ({ sideNavShrinked }) => {
+  const [isPlaylistModalVisible, setIsPlaylistModalVisible] = useState(false)
   return (
+    <>
     <div
       className={`main-container ${
         sideNavShrinked ? "expand-main-container" : ""
@@ -16,6 +19,8 @@ const VideoListingPage = ({ sideNavShrinked }) => {
           videoCreator="Kapil Sharma"
           likes="15M Likes"
           views="23M Views"
+          isPlaylistModalVisible={isPlaylistModalVisible}
+          setIsPlaylistModalVisible={setIsPlaylistModalVisible}
         />
         <VideoCard
           img="../assets/thumbnails/thumbnail.jpg"
@@ -76,6 +81,8 @@ const VideoListingPage = ({ sideNavShrinked }) => {
        
       </div>
     </div>
+    {isPlaylistModalVisible && <PlaylistModal setIsPlaylistModalVisible={setIsPlaylistModalVisible} />}
+    </>
   );
 };
 
