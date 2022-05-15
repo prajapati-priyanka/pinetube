@@ -1,10 +1,18 @@
 import { MdPlaylistAdd,MdOutlineWatchLater} from "react-icons/md";
 import { AiOutlineLike} from "react-icons/ai";
+import { PlaylistModal } from "../Modal/PlaylistModal";
 
-const VideoMenu = ()=>{
+const VideoMenu = ({setIsPlaylistModalVisible, setIsVideoMenuVisible})=>{
+
+  const openPlaylistHandler = ()=>{
+    setIsPlaylistModalVisible(true);
+    setIsVideoMenuVisible(false)
+  }
+ 
     return(
+      <>
         <div className="video-menu">
-          <button className="btn menu-row flex-container" title="Save To Playlist">
+          <button className="btn menu-row flex-container" title="Save To Playlist" onClick={openPlaylistHandler}>
           <MdPlaylistAdd className="menu-row-icon lg-text"/>
           <span className="icon-name md-text">Save To Playlist</span>
          </button>
@@ -19,6 +27,9 @@ const VideoMenu = ()=>{
           <span className="icon-name md-text">Add To Liked Videos</span>
         </button>
         </div>
+
+
+        </>
     )
 }
 
