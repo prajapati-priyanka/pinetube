@@ -28,28 +28,28 @@ const VideoPlayer = () => {
         <div className="video-stats">
           <p className="video-views-info">21M Views | 2 days ago</p>
           <div className="video-user-action">
-            <a href="/" className="side-nav-link flex-container" title="Liked">
+            <div className="flex-container" title="Liked">
               <AiOutlineLike className="side-nav-icon" />
               <span className="side-nav-icon-name">Liked</span>
-            </a>
+            </div>
 
-            <a
+            <div
               href="/"
-              className="side-nav-link flex-container"
+              className="flex-container"
               title="Watch Later"
             >
               <MdOutlineWatchLater className="side-nav-icon" />
               <span className="side-nav-icon-name">Watch Later</span>
-            </a>
+            </div>
 
-            <a
-              href="/"
-              className="side-nav-link flex-container"
+            <div
+          
+              className="flex-container"
               title="Playlist"
             >
               <MdPlaylistAdd className="side-nav-icon" />
               <span className="side-nav-icon-name">Playlists</span>
-            </a>
+            </div>
           </div>
         </div>
         <div className="divider"></div>
