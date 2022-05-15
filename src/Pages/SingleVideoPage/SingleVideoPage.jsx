@@ -10,7 +10,7 @@ const SingleVideoPage = () => {
   return (
     <>
       <Navbar />
-      {/* <SideNav /> */}
+      <SideNav />
       <div className="main-container play-container">
         <div className="row">
           <VideoPlayer />
