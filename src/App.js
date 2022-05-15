@@ -5,9 +5,9 @@ import {Home, SingleVideoPage, PlaylistPage, SinglePlaylistPage, NotFound } from
 function App() {
   return (
     <div className="App">
-       {/* <Home /> */}
+       <Home />
        {/* <SingleVideoPage /> */}
-       <PlaylistPage />
+       {/* <PlaylistPage /> */}
        {/* <SinglePlaylistPage /> */}
        {/* <NotFound /> */}
     </div>
