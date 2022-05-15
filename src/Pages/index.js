@@ -3,4 +3,7 @@ export {NotFound} from "./404Page/404Page";
 export {SingleVideoPage} from "./SingleVideoPage/SingleVideoPage";
 export {SinglePlaylistPage} from "./SinglePlaylistPage/SinglePlaylistPage";
 export {PlaylistPage} from "./PlaylistPage/PlaylistPage";
-export {VideoListingPage} from "./VideoListingPage/VideoListingPage"
+export {VideoListingPage} from "./VideoListingPage/VideoListingPage";
+export {Liked} from "./Liked/Liked";
+export {WatchLater} from "./WatchLater/WatchLater";
+export {History} from "./History/History"
