@@ -1,7 +1,12 @@
 import "./VideoCard.css"
 import {BiDotsVerticalRounded} from  "react-icons/bi";
+import { VideoMenu } from "./VideoMenu";
+import { useState } from "react";
 
 const VideoCard=({img,channelImg, desc, views, likes, videoCreator})=>{
+   
+    const [isVideoMenuVisible,setIsVideoMenuVisible] = useState(false)
+
     return(
         <div className="video-card">
         <a href=""><img src={img} alt="" className="thumbnail" /></a>
@@ -12,9 +17,12 @@ const VideoCard=({img,channelImg, desc, views, likes, videoCreator})=>{
                 <p>{videoCreator}</p>
                 <p>{views} | {likes}</p>
             </div>
-            <button className="btn dot-btn lg-text">
+            <button className="btn dot-btn lg-text" onClick={()=>setIsVideoMenuVisible(isVideoMenuVisible => !isVideoMenuVisible)}>
                 <BiDotsVerticalRounded />
             </button>
+           
+           {isVideoMenuVisible ? <VideoMenu setIsVideoMenuVisible={setIsVideoMenuVisible} isVideoMenuVisible={isVideoMenuVisible} /> : null}
+
         </div>
     </div>
     )
