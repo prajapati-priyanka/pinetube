@@ -65,5 +65,16 @@ a {
   
 }
 
+.badge-count{
+    border-radius: 0.5rem;
+    background-color: var(--black-color);
+    height: 8%;
+    width: 15%;
+}
+.icon .badge-count {
+  top: 62%;
+  right: 2%;
+  padding: 0;
+}
 
 
