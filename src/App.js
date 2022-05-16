@@ -58,6 +58,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover 
+        className="toaster-container"
     
     />
     </>
