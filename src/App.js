@@ -10,6 +10,7 @@ import {
   History,
   Login,
   Signup,
+  Signout,
 } from "./Pages";
 import { Routes, Route } from "react-router-dom";
 import { RequiresAuth } from "./Router/RequiresAuth";
@@ -25,7 +26,7 @@ function App() {
         <Route path="/explore" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-
+        <Route path="/signout" element={<Signout />} />
         <Route path="/singlevideopage" element={<SingleVideoPage />} />
         <Route path="/singleplaylistpage" element={<SinglePlaylistPage />} />
         <Route
