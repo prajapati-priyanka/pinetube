@@ -2,10 +2,12 @@ import { HiOutlineMenu,HiOutlineUser } from "react-icons/hi";
 import { BsSearch  } from "react-icons/bs";
 import "./Navbar.css"
 import { useSideNav } from "../../context";
+import {useNavigate} from "react-router-dom";
 
 const Navbar = () =>{
 
   const {setSideNavShrinked} = useSideNav();
+  const navigate = useNavigate();
     return(
         <nav className="nav-wrapper flex-container">
         <section className="nav-left flex-container">
@@ -23,7 +25,7 @@ const Navbar = () =>{
             <BsSearch />
           </button>
         </section>
-        <section className="nav-right flex-container">
+        <section className="nav-right flex-container" onClick={()=>navigate("/login")}>
             <HiOutlineUser className="user-icon lg-text"/>
            <p className="user-login md-text">Login</p>
         </section>
