@@ -12,10 +12,11 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <SideNavProvider>
-       <App />
-    </SideNavProvider>
-      
+      <AuthProvider>
+        <SideNavProvider>
+          <App />
+        </SideNavProvider>
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
