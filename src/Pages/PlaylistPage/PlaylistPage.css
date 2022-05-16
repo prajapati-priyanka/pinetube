@@ -1,0 +1,22 @@
+.page-title{
+    margin-bottom: 5rem;
+}
+
+.playlist{
+    margin-top: 2rem;
+    max-width: 40rem;
+    padding: 1rem;
+    background-color: var(--white-color);
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+}
+.playlist .playlist-name{
+    margin-left: 0.4rem;
+}
+
+.trash-icon{
+    color: var(--black-color);
+    margin-left: auto;
+    border: 1px solid var(--lynx-gray-color);
+    border-radius: 50%;
+    padding: 0.8rem 0.8rem 0.4rem 0.8rem;
+}

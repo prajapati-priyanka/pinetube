@@ -1,0 +1,80 @@
+.video-card{
+  position: relative;
+}
+.video-card .thumbnail {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.video-card .flex-container {
+  align-items: flex-start;
+  margin-top: 0.8rem;
+}
+.dot-btn{
+  color: var(--black-color);
+  align-self: flex-start;
+
+}
+.video-card .flex-container img {
+  width: 35px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+.video-info {
+  color: var(--link-color);
+  font-weight: var(--semibold-font);
+  font-size: 13px;
+ 
+}
+.video-info a {
+  color: var(--black-color);
+  font-size: 13px;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.video-info p {
+  margin: 0.3rem 0;
+}
+
+/* style from CL */
+
+a {
+  padding: 0;
+}
+
+/*  ****     */
+
+/**** Video Menu ****/
+
+.video-menu{
+  position: absolute;
+  top: 88%;
+  left: 30%; 
+  background-color: var(--white-color);
+  max-width: 600px;
+  z-index: 4;
+  padding: 1rem;
+}
+
+.video-menu .menu-row{
+  color: var(--black-color);
+  font-size: 14px;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0;
+  gap: 2rem;
+  
+}
+
+.badge-count{
+    border-radius: 0.5rem;
+    background-color: var(--black-color);
+    height: 8%;
+    width: 15%;
+}
+.icon .badge-count {
+  top: 62%;
+  right: 2%;
+  padding: 0;
+}
+
+
