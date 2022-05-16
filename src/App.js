@@ -13,9 +13,12 @@ import {
 } from "./Pages";
 import { Routes, Route } from "react-router-dom";
 import { RequiresAuth } from "./Router/RequiresAuth";
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
+    <>
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
@@ -44,6 +47,20 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
+    <ToastContainer 
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        theme={"colored"}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover 
+    
+    />
+    </>
   );
 }
 
