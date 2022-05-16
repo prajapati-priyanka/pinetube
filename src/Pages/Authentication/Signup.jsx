@@ -6,6 +6,7 @@ import { useAuth } from "../../context";
 import {Link,useLocation,useNavigate } from "react-router-dom";
 import { checkIfAllInputIsPresent } from "../../helper/auth-helper";
 import { signupService } from "../../services/authServices";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const { authDispatch } = useAuth();
@@ -41,7 +42,7 @@ const Signup = () => {
   const signupHandler = async (e) => {
     e.preventDefault();
     if(!checkIfAllInputIsPresent(userData)){
-        alert("All fields should be filled")
+      toast.error("All fields should be filled")
     }
     else{
         signupService(userData, authDispatch, navigate,location)

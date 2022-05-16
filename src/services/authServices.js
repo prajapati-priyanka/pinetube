@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 
 
@@ -20,7 +21,7 @@ export const loginService = async (user,authDispatch,navigate,location) =>{
             type: "LOGIN",
             payload: { user: foundUser, token: token },
           });
-       
+           toast.success("You are Succesfully Logged In")
           navigate(location.state.from.pathname);
         } else {
           throw new Error("Can't process the request, Please try again later");
@@ -42,7 +43,7 @@ export const signupService = async(userData, authDispatch, navigate,location) =>
               type: "SIGN_UP",
               payload: { user: createdUser, token: token },
             });
-            alert("Accout is been created")
+            toast.success("You account is successfully created")
             navigate(location.state.from.pathname);
           }
         } catch (err) {
