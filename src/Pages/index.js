@@ -8,4 +8,5 @@ export {Liked} from "./Liked/Liked";
 export {WatchLater} from "./WatchLater/WatchLater";
 export {History} from "./History/History";
 export {Login} from "./Authentication/Login";
-export {Signup} from "./Authentication/Signup"
+export {Signup} from "./Authentication/Signup";
+export {Signout} from "./Authentication/Signout"
