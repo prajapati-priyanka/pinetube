@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
-import { SideNavProvider } from "./context";
+import { SideNavProvider, AuthProvider } from "./context";
 
 // Call make Server
 makeServer();
