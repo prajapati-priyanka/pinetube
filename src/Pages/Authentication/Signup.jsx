@@ -3,12 +3,13 @@ import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./Authentication.css";
 import { useAuth } from "../../context";
-import {Link,useNavigate } from "react-router-dom";
+import {Link,useLocation,useNavigate } from "react-router-dom";
 import { checkIfAllInputIsPresent } from "../../helper/auth-helper";
 import { signupService } from "../../services/authServices";
 
 const Signup = () => {
   const { authDispatch } = useAuth();
+  const location = useLocation();
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
     firstName: "",
@@ -43,7 +44,7 @@ const Signup = () => {
         alert("All fields should be filled")
     }
     else{
-        signupService(userData, authDispatch, navigate)
+        signupService(userData, authDispatch, navigate,location)
        
     }
    

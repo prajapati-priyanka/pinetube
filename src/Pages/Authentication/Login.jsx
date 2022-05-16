@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import "./Authentication.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context";
 import { loginService } from "../../services/authServices";
 
 const Login = () => {
   const { authDispatch } = useAuth();
+  const location = useLocation();
   const navigate = useNavigate();
 
   const [user, setUser] = useState({
@@ -35,7 +36,7 @@ const Login = () => {
     if (user.email === "" || user.password === "") {
       alert("email & password cannot be empty");
     } else {
-      loginService(user, authDispatch, navigate);
+      loginService(user, authDispatch, navigate,location);
     }
   };
 

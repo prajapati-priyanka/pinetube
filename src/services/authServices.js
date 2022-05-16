@@ -1,7 +1,8 @@
 import axios from "axios";
 
 
-export const loginService = async (user,authDispatch,navigate) =>{
+
+export const loginService = async (user,authDispatch,navigate,location) =>{
     try {
         const response = await axios.post("/api/auth/login", {
           email: user.email,
@@ -20,7 +21,7 @@ export const loginService = async (user,authDispatch,navigate) =>{
             payload: { user: foundUser, token: token },
           });
        
-          navigate("/");
+          navigate(location.state.from.pathname);
         } else {
           throw new Error("Can't process the request, Please try again later");
         }
@@ -29,7 +30,7 @@ export const loginService = async (user,authDispatch,navigate) =>{
       }
 }
 
-export const signupService = async(userData, authDispatch, navigate) =>{
+export const signupService = async(userData, authDispatch, navigate,location) =>{
     try {
         const response = await axios.post("/api/auth/signup", userData)
             console.log(response)
@@ -42,7 +43,7 @@ export const signupService = async(userData, authDispatch, navigate) =>{
               payload: { user: createdUser, token: token },
             });
             alert("Accout is been created")
-            navigate("/");
+            navigate(location.state.from.pathname);
           }
         } catch (err) {
           console.log(err);
