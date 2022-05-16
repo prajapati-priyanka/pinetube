@@ -23,8 +23,8 @@ const VideoCard=({img,channelImg, desc, views, likes, videoCreator,isPlaylistMod
                 <BiDotsVerticalRounded />
             </button>
             
-            <div class="icon">
-              <span class="badge-count">21:4</span>
+            <div className="icon">
+              <span className="badge-count">21:4</span>
             </div>
            
            {isVideoMenuVisible ? <VideoMenu 
