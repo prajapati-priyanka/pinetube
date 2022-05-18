@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
-import { SideNavProvider } from "./context";
+import { SideNavProvider, AuthProvider } from "./context";
 
 // Call make Server
 makeServer();
@@ -12,10 +12,11 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <SideNavProvider>
-       <App />
-    </SideNavProvider>
-      
+      <AuthProvider>
+        <SideNavProvider>
+          <App />
+        </SideNavProvider>
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

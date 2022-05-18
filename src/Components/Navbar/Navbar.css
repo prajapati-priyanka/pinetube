@@ -47,4 +47,8 @@
 .nav-right{
     color: var(--text-color);
     gap: 1rem;
+    cursor: pointer;
+}
+.nav-right:hover{
+    color: var(--primary-color);
 }

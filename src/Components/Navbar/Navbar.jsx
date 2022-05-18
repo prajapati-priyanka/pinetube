@@ -1,11 +1,25 @@
 import { HiOutlineMenu,HiOutlineUser } from "react-icons/hi";
+import { AiOutlineLogout } from "react-icons/ai";
 import { BsSearch  } from "react-icons/bs";
 import "./Navbar.css"
-import { useSideNav } from "../../context";
+import { useAuth, useSideNav } from "../../context";
+import {useNavigate} from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Navbar = () =>{
 
   const {setSideNavShrinked} = useSideNav();
+  const {authState, authDispatch} = useAuth()
+  const navigate = useNavigate();
+ const token = authState.token || localStorage.getItem("token");
+
+ const logOutHandler = () => {
+  navigate("/signout");
+  localStorage.removeItem("user");
+  localStorage.removeItem("token");
+  authDispatch({ type: "LOGOUT" });
+  toast.success("You are successfully Logged out!!")
+};
     return(
         <nav className="nav-wrapper flex-container">
         <section className="nav-left flex-container">
@@ -23,10 +37,14 @@ const Navbar = () =>{
             <BsSearch />
           </button>
         </section>
-        <section className="nav-right flex-container">
+        {token ? ( <section className="nav-right flex-container" onClick={logOutHandler}>
+            <AiOutlineLogout className="user-icon lg-text"/>
+           <p className="user-logout md-text">Logout</p>
+        </section>) : (  <section className="nav-right flex-container" onClick={()=>navigate("/login")}>
             <HiOutlineUser className="user-icon lg-text"/>
            <p className="user-login md-text">Login</p>
-        </section>
+        </section>)}
+      
       </nav>
     )
 }
