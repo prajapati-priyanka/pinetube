@@ -2,12 +2,12 @@ import "./HorizontalVideoCard.css";
 import {BiDotsVerticalRounded} from  "react-icons/bi";
 import {Link} from "react-router-dom";
 
-const HorizontalVideoCard = ({img, videoCreator, likes, views, desc}) =>{
+const HorizontalVideoCard = ({likeVideo}) =>{
     return(
         <div className="horizontal-video-card">
         <Link to="/singlevideopage">
           <img
-            src={img}
+            src={likeVideo.videoThumbnail}
             alt=""
             className="thumbnail"
           />
@@ -15,10 +15,10 @@ const HorizontalVideoCard = ({img, videoCreator, likes, views, desc}) =>{
 
         <div className="video-info">
           <Link to="/singlevideopage">
-           {desc}
+           {likeVideo.title}
           </Link>
-          <p>{videoCreator}</p>
-          <p>{views} | {likes}</p>
+          <p>{likeVideo.channelName}</p>
+          <p>{likeVideo.views} | {likeVideo.likes}</p>
         </div>
         <button className="btn dot-btn lg-text">
                 <BiDotsVerticalRounded />
