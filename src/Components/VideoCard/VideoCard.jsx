@@ -33,6 +33,7 @@ const VideoCard=({videos,isPlaylistModalVisible,setIsPlaylistModalVisible})=>{
            isVideoMenuVisible={isVideoMenuVisible} 
            isPlaylistModalVisible={isPlaylistModalVisible}
            setIsPlaylistModalVisible={setIsPlaylistModalVisible}
+           videos={videos}
            
            /> : null}
 
