@@ -155,7 +155,7 @@ export const videos = [
     likes:"446",
     videoLength:"17:57",
     channelThumbnail: "https://yt3.ggpht.com/ytc/AKedOLQGnY6McntoY-eWaRDI047FWFqj7pVlw2nBfkwz7w=s88-c-k-c0x00ffffff-no-rj",
-    videoThumbnail: "https://img.youtube.com/vi/42cwiP25ChI/sddefault.jpg",
+    videoThumbnail: "https://img.youtube.com/vi/Hp0vG274DAM/sddefault.jpg",
     category: "TED TALKS",
     subscribers:"34.8M"
 
