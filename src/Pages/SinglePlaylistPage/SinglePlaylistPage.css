@@ -14,7 +14,7 @@
     opacity: 1;
 }
 .text-overlay{
-    top: 85%;
+    top: 75%;
     background-color: var(--black-color);
     color: var(--white-color);
     font-weight: var(--regular-font);
