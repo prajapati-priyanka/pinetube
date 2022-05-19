@@ -13,6 +13,7 @@
 .dot-btn{
   color: var(--black-color);
   align-self: flex-start;
+  margin-left: auto;
 
 }
 .video-card .flex-container img {
