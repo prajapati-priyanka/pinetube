@@ -5,11 +5,15 @@
     border-bottom: 1px solid var(--lynx-gray-color);
     flex-wrap: wrap;
 }
+.btn{
+    padding: 0.4rem 1.6rem;
+    border-radius: 1.6rem;
+}
 .filter-category{
     color: var(--black-color);
     border: 1px solid var(--lynx-gray-color);
-    border-radius: 2rem;
     background-color: rgba(0, 0, 0, 0.05);
+    /* max-width: 11rem; */
 }
 .filter-category:hover{
    background-color:  rgba(0, 0, 0, 0.1);

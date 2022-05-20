@@ -1,9 +1,24 @@
 import { CategoryBar, PlaylistModal, VideoCard } from "../../Components";
 import "./VideoListingPage.css";
-import { useState } from "react";
+import { useState,useEffect  } from "react";
+import { getVideoServices } from "../../services/getVideoServices";
+import { getCategoryService } from "../../services/getCategoryService";
 
 const VideoListingPage = ({ sideNavShrinked }) => {
   const [isPlaylistModalVisible, setIsPlaylistModalVisible] = useState(false)
+  const [allVideo, setAllVideo] = useState([]);
+  const [allCategories, setAllCategories] = useState([]);
+
+  useEffect(()=>{
+   
+    getVideoServices(setAllVideo);
+
+  },[])
+
+ useEffect(()=>{
+   getCategoryService(setAllCategories)
+ },[])
+
   return (
     <>
     <div
@@ -11,130 +26,14 @@ const VideoListingPage = ({ sideNavShrinked }) => {
         sideNavShrinked ? "expand-main-container" : ""
       }`}
     >
-      <CategoryBar />
+          <CategoryBar allCategories ={allCategories} />
+  
       <div className="video-card-container">
-        <VideoCard
-          img="../assets/thumbnails/thumbnail.jpg"
-          channelImg="../assets/channel/channel.jpg"
-          desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-          videoCreator="Kapil Sharma"
-          likes="15M Likes"
-          views="23M Views"
-          isPlaylistModalVisible={isPlaylistModalVisible}
-          setIsPlaylistModalVisible={setIsPlaylistModalVisible}
-        />
-        <VideoCard
-          img="../assets/thumbnails/thumbnail.jpg"
-          channelImg="../assets/channel/channel.jpg"
-          desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-          videoCreator="Kapil Sharma"
-          likes="15M Likes"
-          views="23M Views"
-        />
-        <VideoCard
-          img="../assets/thumbnails/thumbnail.jpg"
-          channelImg="../assets/channel/channel.jpg"
-          desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-          videoCreator="Kapil Sharma"
-          likes="15M Likes"
-          views="23M Views"
-        />
-        <VideoCard
-          img="../assets/thumbnails/thumbnail.jpg"
-          channelImg="../assets/channel/channel.jpg"
-          desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-          videoCreator="Kapil Sharma"
-          likes="15M Likes"
-          views="23M Views"
-        />
-        <VideoCard
-          img="../assets/thumbnails/thumbnail.jpg"
-          channelImg="../assets/channel/channel.jpg"
-          desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-          videoCreator="Kapil Sharma"
-          likes="15M Likes"
-          views="23M Views"
-        />
-        <VideoCard
-          img="../assets/thumbnails/thumbnail.jpg"
-          channelImg="../assets/channel/channel.jpg"
-          desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-          videoCreator="Kapil Sharma"
-          likes="15M Likes"
-          views="23M Views"
-        />
-        <VideoCard
-          img="../assets/thumbnails/thumbnail.jpg"
-          channelImg="../assets/channel/channel.jpg"
-          desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-          videoCreator="Kapil Sharma"
-          likes="15M Likes"
-          views="23M Views"
-        />
-        <VideoCard
-          img="../assets/thumbnails/thumbnail.jpg"
-          channelImg="../assets/channel/channel.jpg"
-          desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-          videoCreator="Kapil Sharma"
-          likes="15M Likes"
-          views="23M Views"
-        />
-        <VideoCard
-          img="../assets/thumbnails/thumbnail.jpg"
-          channelImg="../assets/channel/channel.jpg"
-          desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-          videoCreator="Kapil Sharma"
-          likes="15M Likes"
-          views="23M Views"
-        />
-        <VideoCard
-          img="../assets/thumbnails/thumbnail.jpg"
-          channelImg="../assets/channel/channel.jpg"
-          desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-          videoCreator="Kapil Sharma"
-          likes="15M Likes"
-          views="23M Views"
-        />
-        <VideoCard
-          img="../assets/thumbnails/thumbnail.jpg"
-          channelImg="../assets/channel/channel.jpg"
-          desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-          videoCreator="Kapil Sharma"
-          likes="15M Likes"
-          views="23M Views"
-        />
-        <VideoCard
-          img="../assets/thumbnails/thumbnail.jpg"
-          channelImg="../assets/channel/channel.jpg"
-          desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-          videoCreator="Kapil Sharma"
-          likes="15M Likes"
-          views="23M Views"
-        />
-        <VideoCard
-          img="../assets/thumbnails/thumbnail.jpg"
-          channelImg="../assets/channel/channel.jpg"
-          desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-          videoCreator="Kapil Sharma"
-          likes="15M Likes"
-          views="23M Views"
-        />
-        <VideoCard
-          img="../assets/thumbnails/thumbnail.jpg"
-          channelImg="../assets/channel/channel.jpg"
-          desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-          videoCreator="Kapil Sharma"
-          likes="15M Likes"
-          views="23M Views"
-        />
-        <VideoCard
-          img="../assets/thumbnails/thumbnail.jpg"
-          channelImg="../assets/channel/channel.jpg"
-          desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-          videoCreator="Kapil Sharma"
-          likes="15M Likes"
-          views="23M Views"
-        />
+        {allVideo.map(video =>{return(
+          <VideoCard key={video._id} videos= {video}/>
+        )
+       })}
+       
        
       </div>
     </div>

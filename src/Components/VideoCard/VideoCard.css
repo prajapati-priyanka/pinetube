@@ -13,6 +13,7 @@
 .dot-btn{
   color: var(--black-color);
   align-self: flex-start;
+  margin-left: auto;
 
 }
 .video-card .flex-container img {
@@ -48,10 +49,10 @@ a {
 
 .video-menu{
   position: absolute;
-  top: 88%;
-  left: 30%; 
+  top: 85%;
+  left: 20%; 
   background-color: var(--white-color);
-  max-width: 600px;
+  width: 24rem;
   z-index: 4;
   padding: 1rem;
 }
