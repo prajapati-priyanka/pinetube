@@ -5,7 +5,7 @@ export const watchLaterReducer = (state,action) =>{
                 ...state,
                 watchLater: action.payload
             }
-        case "DELETE_FROM_WATCH_LATER":
+        case "REMOVE_FROM_WATCH_LATER":
             return{
                 ...state,
                 watchLater: action.payload

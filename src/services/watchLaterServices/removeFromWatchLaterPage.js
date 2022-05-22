@@ -8,7 +8,7 @@ try {
     }});
    
  if(response.status === 200){
-        watchLaterDispatch({type: "DELETE_FROM_WATCH_LATER", payload: response.data.watchlater});
+        watchLaterDispatch({type: "REMOVE_FROM_WATCH_LATER", payload: response.data.watchlater});
         toast.error("Removed from Watch Later Page")
     }else{
         throw new Error("Can't process the request")
