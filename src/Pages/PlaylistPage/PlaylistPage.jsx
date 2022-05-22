@@ -2,18 +2,25 @@ import "./PlaylistPage.css";
 import { MdPlaylistAdd} from "react-icons/md";
 import { BsTrash} from "react-icons/bs";
 import {Navbar, SideNav} from "../../Components"
-import { useNavigate } from "react-router-dom";
-import { usePlaylist } from "../../context";
-import { Fragment } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth, usePlaylist } from "../../context";
+import { deletePlaylistService } from "../../services";
+
 
 const PlaylistPage = () =>{
    
     const navigate= useNavigate();
-    const {playlistState : {playlists}} = usePlaylist();
+    const {playlistState : {playlists}, playlistDispatch} = usePlaylist();
+    const{authState: {token}} = useAuth();
 
     const playlistPageHandler = () =>{
         navigate("/singleplaylistpage")
     }
+
+    const deletePlaylistHandler = (playlistId) =>{
+        deletePlaylistService(token, playlistId, playlistDispatch)
+    }
+
     return(
         <>
         <Navbar />
@@ -23,18 +30,22 @@ const PlaylistPage = () =>{
            <h3 className="page-title">Playlist</h3>
          
               
-                {playlists.map(playlist => (
-                     <div key={playlist._id}  className="playlist flex-container" onClick={playlistPageHandler}> 
+                {playlists.length > 0 ? (playlists.map(playlist => (
+                     <div key={playlist._id}  className="playlist flex-container"> 
                      <MdPlaylistAdd className="playlist-icon x-lg-text"/>
-                   <div>
+                   <div onClick={playlistPageHandler}>
                        <p className="playlist-name lg-text">{playlist.title}</p>
-                       <p className="playlist-name text-muted">{playlist.videos.length} Videos</p>
+                       <p className="playlist-name text-muted">{playlist.videos.length} {playlist.videos.length ===1 ? "Video" : "Videos"}</p>
                    </div>
-                   <button className="btn trash-icon lg-text">
+                   <button className="btn trash-icon lg-text" onClick={()=> deletePlaylistHandler(playlist)}>
                         <BsTrash />
                    </button>
                    </div>
-                ))}
+                ))) : (
+                    <Link to="/explore">
+                    <button className="btn btn-primary">Explore</button>
+                    </Link>
+                )}
                   
 
        
