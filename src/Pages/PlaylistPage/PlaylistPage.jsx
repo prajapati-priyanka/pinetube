@@ -3,10 +3,15 @@ import { MdPlaylistAdd} from "react-icons/md";
 import { BsTrash} from "react-icons/bs";
 import {Navbar, SideNav} from "../../Components"
 import { useNavigate } from "react-router-dom";
+import { usePlaylist } from "../../context";
+import { Fragment } from "react";
 
 const PlaylistPage = () =>{
    
-    const navigate= useNavigate()
+    const navigate= useNavigate();
+    const {playlistState : {playlists}} = usePlaylist();
+
+    console.log(playlists, "in playlistPage")
 
     const playlistPageHandler = () =>{
         navigate("/singleplaylistpage")
@@ -18,35 +23,24 @@ const PlaylistPage = () =>{
        
        <div className="main-container">
            <h3 className="page-title">Playlist</h3>
-           <div className="playlist flex-container" onClick={playlistPageHandler}>
+         
               
-                
-                   <MdPlaylistAdd className="playlist-icon x-lg-text"/>
+                {playlists.map(playlist => (
+                     <div key={playlist._id}  className="playlist flex-container" onClick={playlistPageHandler}> 
+                     <MdPlaylistAdd className="playlist-icon x-lg-text"/>
                    <div>
-                       <p className="playlist-name lg-text">Hello</p>
-                       <p className="playlist-name text-muted">6 vidoes</p>
+                       <p className="playlist-name lg-text">{playlist.title}</p>
+                       <p className="playlist-name text-muted">{playlist.videos.length} Videos</p>
                    </div>
                    <button className="btn trash-icon lg-text">
                         <BsTrash />
                    </button>
-
-         </div>
-           <div className="playlist flex-container">
-              
-                
-                   <MdPlaylistAdd className="playlist-icon x-lg-text"/>
-                   <div>
-                       <p className="playlist-name lg-text">Hello</p>
-                       <p className="playlist-name text-muted">6 vidoes</p>
                    </div>
-                   <button className="btn trash-icon lg-text">
-                        <BsTrash />
-                   </button>
-
+                ))}
                   
-              
-           </div>
-       </div>
+
+       
+    </div>
        </>
     )
 }
