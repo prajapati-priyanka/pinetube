@@ -16,7 +16,8 @@ const PlaylistPage = () => {
     authState: { token },
   } = useAuth();
 
-  const deletePlaylistHandler = (playlistId) => {
+  const deletePlaylistHandler = (e, playlistId) => {
+    e.stopPropagation();
     deletePlaylistService(token, playlistId, playlistDispatch);
   };
 
@@ -45,7 +46,7 @@ const PlaylistPage = () => {
               </div>
               <button
                 className="btn trash-icon lg-text"
-                onClick={() => deletePlaylistHandler(playlist)}
+                onClick={(e) => deletePlaylistHandler(e, playlist)}
               >
                 <BsTrash />
               </button>
