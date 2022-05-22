@@ -17,6 +17,11 @@ export const playlistReducer = (state, action) => {
           item.title === action.payload.title ? action.payload : item
         ),
       };
+    case "DELETE_PLAYLIST":
+      return {
+        playlists: action.payload
+       
+      };
 
     default:
       return state;
