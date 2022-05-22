@@ -15,23 +15,32 @@ const SinglePlaylistPage = () => {
   } = usePlaylist();
 
   const currentPlaylist = playlists.find((item) => item._id === playlistID);
-  console.log(currentPlaylist, "inSinglePlaylistPAge");
+
   return (
     <>
       <Navbar />
       <SideNav />
       <div className="main-container playlist-page">
         <div className="row">
-          <ContentSidebar videoData={currentPlaylist.videos} playlistTitle = {currentPlaylist.title}/>
+          <ContentSidebar
+            videoData={currentPlaylist.videos}
+            playlistTitle={currentPlaylist.title}
+          />
 
           <div className="playlist-right-content">
-            {currentPlaylist.videos.map((video) => (
-              <HorizontalVideoCard
-                key={video._id}
-                video={video}
-                playlistID={playlistID}
-              />
-            ))}
+            {currentPlaylist.videos.length < 1 ? (
+              <div className="lg-text text-center">
+                No Video in the {currentPlaylist.title} playlist
+              </div>
+            ) : (
+              currentPlaylist.videos.map((video) => (
+                <HorizontalVideoCard
+                  key={video._id}
+                  video={video}
+                  playlistID={playlistID}
+                />
+              ))
+            )}
           </div>
         </div>
       </div>
