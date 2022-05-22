@@ -55,7 +55,7 @@ const PlaylistModal = ({ setIsPlaylistModalVisible, playlistVideo }) => {
 
   const CheckPlaylistInputHandler = (e) => {
     const { checked, id } = e.target;
-    
+
     if (checked) {
       addVideoToPlaylist(token, id, playlistVideo, playlistDispatch);
     } else {
@@ -79,7 +79,7 @@ const PlaylistModal = ({ setIsPlaylistModalVisible, playlistVideo }) => {
 
         <section className="playlist-modal-body">
           <div className="input-container">
-            <input type="checkbox" id="watch-later" />
+            <input type="checkbox" id="watch-later" className="input-check"/>
             <label htmlFor="watch-later" className="md-text">
               Watch Later
             </label>
@@ -90,6 +90,7 @@ const PlaylistModal = ({ setIsPlaylistModalVisible, playlistVideo }) => {
                 <div key={item._id} className="input-container">
                   <input
                     type="checkbox"
+                    className="input-check"
                     id={item._id}
                     checked={checkIsVideoInPlaylist(item._id)}
                     onChange={CheckPlaylistInputHandler}
