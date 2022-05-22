@@ -9,8 +9,8 @@ import {
   removeVideoFromPlaylist,
 } from "../../services";
 import { checkItemInArrayOfObject } from "../../helper/utility-helper";
-import { addToWatchLaterPage } from "../../services/watchLaterServices/addToWatchLaterPage";
-import { removeFromWatchLaterPage } from "../../services/watchLaterServices/removeFromWatchLaterPage";
+import { toggleWatchLaterHandler } from "../../helper/watchLater-helper";
+import { useNavigate } from "react-router-dom";
 
 const PlaylistModal = ({ setIsPlaylistModalVisible, playlistVideo }) => {
   const [isCreatePlaylistInputVisible, setIsCreatePlaylistInputVisible] =
@@ -24,6 +24,7 @@ const PlaylistModal = ({ setIsPlaylistModalVisible, playlistVideo }) => {
     playlistState: { playlists },
     playlistDispatch,
   } = usePlaylist();
+  const navigate = useNavigate();
   const { authState } = useAuth();
   const {
     watchLaterState: { watchLater },
@@ -74,17 +75,19 @@ const PlaylistModal = ({ setIsPlaylistModalVisible, playlistVideo }) => {
     }
   };
 
-  const isVideoInWatchLater = checkItemInArrayOfObject(
+  const isVideoInWatchLaterPage = checkItemInArrayOfObject(
     watchLater,
     playlistVideo
   );
 
   const watchLaterInputHandler = () => {
-    if (isVideoInWatchLater) {
-      removeFromWatchLaterPage(playlistVideo, token, watchLaterDispatch);
-    } else {
-      addToWatchLaterPage(playlistVideo, token, watchLaterDispatch);
-    }
+    toggleWatchLaterHandler(
+      token,
+      watchLaterDispatch,
+      isVideoInWatchLaterPage,
+      navigate,
+      playlistVideo
+    );
   };
 
   return (
@@ -107,7 +110,7 @@ const PlaylistModal = ({ setIsPlaylistModalVisible, playlistVideo }) => {
               type="checkbox"
               id="watch-later"
               className="input-check"
-              checked={isVideoInWatchLater}
+              checked={isVideoInWatchLaterPage ? true : false}
               onChange={watchLaterInputHandler}
             />
             <label htmlFor="watch-later" className="md-text">
