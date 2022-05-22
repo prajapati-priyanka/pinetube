@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 
 export const ContentSidebar = ({ videoData, playlistTitle }) => {
-  
+
   const location = useLocation();
 
   const getPageName = () => {
@@ -23,7 +23,7 @@ export const ContentSidebar = ({ videoData, playlistTitle }) => {
             </figure>
           ) : (
             <figure className="card-header">
-              <img src="../assets/defaultImg.jpg" alt="default-img" />
+              <img src="../assets/defaultImg.jpg" alt="default" />
             </figure>
           )}
         </div>
