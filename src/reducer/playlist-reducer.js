@@ -13,13 +13,17 @@ export const playlistReducer = (state, action) => {
       };
     case "REMOVE_FROM_PLAYLIST":
       return {
-        playlists: state.playlists.map((item) =>
-          item.title === action.payload.title ? action.payload : item
-        ),
+        playlists: action.payload
       };
     case "DELETE_PLAYLIST":
       return {
         playlists: action.payload
+       
+      };
+    case "DELETE_FROM_SINGLE_PLAYLIST":
+      return {
+      playlists: state.playlists.map((item) =>
+      item.title === action.payload.title ? action.payload : item) 
        
       };
 
