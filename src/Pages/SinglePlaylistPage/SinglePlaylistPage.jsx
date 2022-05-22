@@ -1,7 +1,15 @@
+import { useParams } from "react-router-dom"
 import { HorizontalVideoCard, Navbar, SideNav } from "../../Components"
+import { usePlaylist } from "../../context";
 import "./SinglePlaylistPage.css"
 
 const SinglePlaylistPage = () =>{
+
+  const {playlistID} = useParams();
+  const {playlistState: {playlists}} = usePlaylist()
+
+  const currentPlaylist = playlists.find(item => item._id ===  playlistID);
+  console.log(currentPlaylist, "inSinglePlaylistPAge")
     return(
         <>
         <Navbar />
@@ -37,13 +45,14 @@ const SinglePlaylistPage = () =>{
          
 
       <div className="playlist-right-content">
-      <HorizontalVideoCard
+        {currentPlaylist.videos.map(video=> <HorizontalVideoCard key={video._id} video={video} playlistID={playlistID}/>) }
+      {/* <HorizontalVideoCard
               img="../assets/thumbnails/thumbnail.jpg"
               desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
               videoCreator="The Kapil Sharma Show"
               likes="23M likes"
               views="15M views"
-            />
+            /> */}
       </div>
          
           </div>
