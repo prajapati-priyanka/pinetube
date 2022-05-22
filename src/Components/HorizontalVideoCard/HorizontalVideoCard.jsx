@@ -5,29 +5,34 @@ import { Link, useLocation } from "react-router-dom";
 import { useAuth, useLike } from "../../context";
 import { removeFromLikePage } from "../../services/likeServices/removeFromLikePage";
 
-const HorizontalVideoCard = ({ likeVideo }) => {
+const HorizontalVideoCard = ({ video, playlistID }) => {
   const location = useLocation();
   const { authState } = useAuth();
   const { likeDispatch } = useLike();
   const token = authState.token || localStorage.getItem("token");
+  
   return (
     <div className="horizontal-video-card">
       <Link to="/singlevideopage">
-        <img src={likeVideo.videoThumbnail} alt="" className="thumbnail" />
+     
+        <img src={video.videoThumbnail} alt="" className="thumbnail" />
       </Link>
 
       <div className="video-info">
-        <Link to="/singlevideopage">{likeVideo.title}</Link>
-        <p>{likeVideo.channelName}</p>
+       
+        <Link to="/singlevideopage">{video.title}</Link>
+        
+        <p>{video.channelName}</p>
         <p>
-          {likeVideo.views} | {likeVideo.likes}
+         
+          {video.views} | {video.likes}
         </p>
       </div>
-      {location.pathname === "/liked" ? (
+      {location.pathname === `/playlists/${playlistID}` ? (
         <button
           className="btn dot-btn lg-text"
           onClick={() => {
-            removeFromLikePage(likeVideo, token, likeDispatch);
+            // removeFromLikePage(likeVideo, token, likeDispatch);
           }}
         >
           <BsTrash />
