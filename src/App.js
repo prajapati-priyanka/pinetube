@@ -28,7 +28,6 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/signout" element={<Signout />} />
         <Route path="/singlevideopage" element={<SingleVideoPage />} />
-        {/* <Route path="/singleplaylistpage" element={<SinglePlaylistPage />} /> */}
         <Route
           path="/liked"
           element={<RequiresAuth children={<Liked />}></RequiresAuth>}
