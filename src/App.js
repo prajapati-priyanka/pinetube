@@ -28,7 +28,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/signout" element={<Signout />} />
         <Route path="/singlevideopage" element={<SingleVideoPage />} />
-        <Route path="/singleplaylistpage" element={<SinglePlaylistPage />} />
+        {/* <Route path="/singleplaylistpage" element={<SinglePlaylistPage />} /> */}
         <Route
           path="/liked"
           element={<RequiresAuth children={<Liked />}></RequiresAuth>}
@@ -44,6 +44,10 @@ function App() {
         <Route
           path="/playlists"
           element={<RequiresAuth children={<PlaylistPage />}></RequiresAuth>}
+        />
+        <Route
+          path="/playlists/:playlistID"
+          element={<RequiresAuth children={<SinglePlaylistPage />}></RequiresAuth>}
         />
         <Route path="*" element={<NotFound />} />
       </Routes>
