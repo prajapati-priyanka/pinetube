@@ -1,8 +1,10 @@
 import { MdPlaylistAdd, MdOutlineWatchLater } from "react-icons/md";
 import { AiOutlineLike } from "react-icons/ai";
-import { useAuth, useLike } from "../../context";
+import { useAuth, useLike, useWatchLater } from "../../context";
 import { useNavigate } from "react-router-dom";
 import { toggleLikeHandler } from "../../helper/like-helper";
+import { checkItemInArrayOfObject } from "../../helper/utility-helper";
+import {toggleWatchLaterHandler} from "../../helper/watchLater-helper"
 
 const VideoMenu = ({
   setIsPlaylistModalVisible,
@@ -15,6 +17,7 @@ const VideoMenu = ({
     likeDispatch,
     likeState: { likeData },
   } = useLike();
+  const {watchLaterState : {watchLater}, watchLaterDispatch} = useWatchLater();
   const navigate = useNavigate();
   const token = authState.token || localStorage.getItem("token");
 
@@ -28,12 +31,18 @@ const VideoMenu = ({
     }
   };
 
-  const isVideoInLikePage = likeData.find((item) => item._id === videos._id);
+  const isVideoInLikePage = checkItemInArrayOfObject(likeData, videos)
+  const isVideoInWatchLaterPage = checkItemInArrayOfObject(watchLater, videos)
 
   const likeClickHandler = () => {
     setIsVideoMenuVisible(false);
     toggleLikeHandler(token, likeDispatch, isVideoInLikePage, navigate, videos);
   };
+
+  const watchLaterHandler = () =>{
+    setIsVideoMenuVisible(false);
+    toggleWatchLaterHandler(token, watchLaterDispatch, isVideoInWatchLaterPage, navigate,videos )
+  }
 
   return (
     <>
@@ -47,9 +56,9 @@ const VideoMenu = ({
           <span className="icon-name md-text">Save To Playlist</span>
         </button>
 
-        <button className="btn menu-row flex-container" title="Watch Later">
+        <button className="btn menu-row flex-container" title="Watch Later" onClick={watchLaterHandler}>
           <MdOutlineWatchLater className="menu-row-icon lg-text" />
-          <span className="icon-name md-text">Save to Watch Later</span>
+          <span className="icon-name md-text">{isVideoInWatchLaterPage && token ? "Remove from Watch Later" : "Save to Watch Later"}</span>
         </button>
 
         <button
