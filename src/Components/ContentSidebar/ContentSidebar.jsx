@@ -40,7 +40,7 @@ export const ContentSidebar = ({ videoData, playlistTitle }) => {
       <div className="video-creator">
         <img
           src="https://lh3.googleusercontent.com/ogw/ADea4I4uUERI95xonyxzL3nGOOMdNrpjNtGEXURXLFL0=s32-c-mo"
-          alt="channel-image"
+          alt="channel"
         />
         <div className="video-channel">
           <p className="channel-name md-text">Priyanka Prajapati</p>
