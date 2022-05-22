@@ -5,4 +5,4 @@ export{HorizontalVideoCard} from "./HorizontalVideoCard/HorizontalVideoCard";
 export {VideoPlayer} from "./VideoPlayer/VideoPlayer";
 export{PlaylistModal} from "./Modal/PlaylistModal";
 export {CategoryBar} from "./CategoryBar/CategoryBar";
-
+export {ContentSidebar} from "./ContentSidebar/ContentSidebar"
