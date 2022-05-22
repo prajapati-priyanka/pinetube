@@ -11,8 +11,6 @@ const PlaylistPage = () =>{
     const navigate= useNavigate();
     const {playlistState : {playlists}} = usePlaylist();
 
-    console.log(playlists, "in playlistPage")
-
     const playlistPageHandler = () =>{
         navigate("/singleplaylistpage")
     }
