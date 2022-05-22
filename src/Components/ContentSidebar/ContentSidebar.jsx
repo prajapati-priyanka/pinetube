@@ -19,7 +19,7 @@ export const ContentSidebar = ({ videoData, playlistTitle }) => {
         <div className="card-with-text-overlay">
           {videoData.length > 0 ? (
             <figure className="card-header">
-              <img src={videoData[0].videoThumbnail} alt="" />
+              <img src={videoData[0].videoThumbnail} alt="videoThumnail" />
             </figure>
           ) : (
             <figure className="card-header">
