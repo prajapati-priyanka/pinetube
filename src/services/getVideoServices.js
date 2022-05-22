@@ -4,7 +4,6 @@ import { toast } from "react-toastify";
 export const getVideoServices = async (setAllVideo) => {
   try {
     const response = await axios.get("/api/videos");
-    console.log(response);
     if (response.status === 200) {
       setAllVideo(response.data.videos);
     } else {

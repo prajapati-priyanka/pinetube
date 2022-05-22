@@ -5,7 +5,8 @@ import { getVideoServices } from "../../services/getVideoServices";
 import { getCategoryService } from "../../services/getCategoryService";
 
 const VideoListingPage = ({ sideNavShrinked }) => {
-  const [isPlaylistModalVisible, setIsPlaylistModalVisible] = useState(false)
+  const [isPlaylistModalVisible, setIsPlaylistModalVisible] = useState(false);
+  const [playlistVideo, setPlaylistVideo] = useState({})
   const [allVideo, setAllVideo] = useState([]);
   const [allCategories, setAllCategories] = useState([]);
 
@@ -30,14 +31,14 @@ const VideoListingPage = ({ sideNavShrinked }) => {
   
       <div className="video-card-container">
         {allVideo.map(video =>{return(
-          <VideoCard key={video._id} videos= {video}/>
+          <VideoCard key={video._id} videos= {video} setIsPlaylistModalVisible={setIsPlaylistModalVisible} setPlaylistVideo={setPlaylistVideo}/>
         )
        })}
        
        
       </div>
     </div>
-    {isPlaylistModalVisible && <PlaylistModal setIsPlaylistModalVisible={setIsPlaylistModalVisible} />}
+    {isPlaylistModalVisible && <PlaylistModal setIsPlaylistModalVisible={setIsPlaylistModalVisible} playlistVideo = {playlistVideo}/>}
     </>
   );
 };
