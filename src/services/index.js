@@ -7,4 +7,5 @@ export {removeFromLikePage} from "./likeServices/removeFromLikePage";
 export {createNewPlaylistService} from "./playlistServices/createNewPlaylistService";
 export {addVideoToPlaylist} from "./playlistServices/addVideoToPlaylist";
 export {removeVideoFromPlaylist} from "./playlistServices/removeVideoFromPlaylist";
-export {deletePlaylistService} from "./playlistServices/deletePlaylistService"
+export {deletePlaylistService} from "./playlistServices/deletePlaylistService";
+export {deleteVideoFromSinglePlaylistPage} from "./playlistServices/deleteVideoFromSinglePlaylistPage"
