@@ -22,7 +22,7 @@ const Liked = () => {
               likeData.map((likeVideo) => (
                 <HorizontalVideoCard
                   key={likeVideo._id}
-                  likeVideo={likeVideo}
+                  video={likeVideo}
                 />
               ))
             )}
