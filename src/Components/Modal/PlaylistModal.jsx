@@ -2,8 +2,15 @@ import "./PlaylistModal.css";
 import { BsXLg } from "react-icons/bs";
 import { useState } from "react";
 import { MdPlaylistAdd } from "react-icons/md";
-import { useAuth, usePlaylist } from "../../context";
-import { createNewPlaylistService,addVideoToPlaylist, removeVideoFromPlaylist } from "../../services"
+import { useAuth, usePlaylist, useWatchLater } from "../../context";
+import {
+  createNewPlaylistService,
+  addVideoToPlaylist,
+  removeVideoFromPlaylist,
+} from "../../services";
+import { checkItemInArrayOfObject } from "../../helper/utility-helper";
+import { addToWatchLaterPage } from "../../services/watchLaterServices/addToWatchLaterPage";
+import { removeFromWatchLaterPage } from "../../services/watchLaterServices/removeFromWatchLaterPage";
 
 const PlaylistModal = ({ setIsPlaylistModalVisible, playlistVideo }) => {
   const [isCreatePlaylistInputVisible, setIsCreatePlaylistInputVisible] =
@@ -18,6 +25,10 @@ const PlaylistModal = ({ setIsPlaylistModalVisible, playlistVideo }) => {
     playlistDispatch,
   } = usePlaylist();
   const { authState } = useAuth();
+  const {
+    watchLaterState: { watchLater },
+    watchLaterDispatch,
+  } = useWatchLater();
 
   const token = authState.token || localStorage.getItem("token");
 
@@ -63,6 +74,19 @@ const PlaylistModal = ({ setIsPlaylistModalVisible, playlistVideo }) => {
     }
   };
 
+  const isVideoInWatchLater = checkItemInArrayOfObject(
+    watchLater,
+    playlistVideo
+  );
+
+  const watchLaterInputHandler = () => {
+    if (isVideoInWatchLater) {
+      removeFromWatchLaterPage(playlistVideo, token, watchLaterDispatch);
+    } else {
+      addToWatchLaterPage(playlistVideo, token, watchLaterDispatch);
+    }
+  };
+
   return (
     <div className="modal-background">
       <div className="modal-container">
@@ -79,7 +103,13 @@ const PlaylistModal = ({ setIsPlaylistModalVisible, playlistVideo }) => {
 
         <section className="playlist-modal-body">
           <div className="input-container">
-            <input type="checkbox" id="watch-later" className="input-check"/>
+            <input
+              type="checkbox"
+              id="watch-later"
+              className="input-check"
+              checked={isVideoInWatchLater}
+              onChange={watchLaterInputHandler}
+            />
             <label htmlFor="watch-later" className="md-text">
               Watch Later
             </label>
