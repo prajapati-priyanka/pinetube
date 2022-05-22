@@ -4,7 +4,7 @@ import { VideoMenu } from "./VideoMenu";
 import { useState } from "react";
 import {Link} from "react-router-dom"
 
-const VideoCard=({videos,isPlaylistModalVisible,setIsPlaylistModalVisible})=>{
+const VideoCard=({videos,setIsPlaylistModalVisible, setPlaylistVideo})=>{
    
     const [isVideoMenuVisible,setIsVideoMenuVisible] = useState(false);
 
@@ -31,9 +31,10 @@ const VideoCard=({videos,isPlaylistModalVisible,setIsPlaylistModalVisible})=>{
            {isVideoMenuVisible ? <VideoMenu 
            setIsVideoMenuVisible={setIsVideoMenuVisible} 
            isVideoMenuVisible={isVideoMenuVisible} 
-           isPlaylistModalVisible={isPlaylistModalVisible}
            setIsPlaylistModalVisible={setIsPlaylistModalVisible}
            videos={videos}
+           setPlaylistVideo={setPlaylistVideo}
+   
            
            /> : null}
 
