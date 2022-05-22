@@ -15,7 +15,7 @@ export const deletePlaylistService = async (
         type: "DELETE_PLAYLIST",
         payload: response.data.playlists,
       });
-      toast.success(`${playlist.title} is successfully deleted`);
+      toast.error(`${playlist.title} playlist is deleted`);
     } else {
       throw new Error("Can't process the request");
     }
