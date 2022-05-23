@@ -5,8 +5,8 @@
 }
 .iframe-wrapper {
   width: 900px;
-  height: 545px;
-  flex-grow: 1;
+  height: 530px;
+
 }
 .player-wrapper .video-player {
   width: 100%;
@@ -17,10 +17,10 @@
   margin-top: 3rem;
   width: 100%;
 }
-.player-wrapper .video-hashtags a {
+.player-wrapper .video-hashtags span{
   color: var(--hashtag-color);
-  font-size: 13px;
-  padding-right: 0.3rem;
+  font-size: 14px;
+  padding-right: 0.5rem;
 }
 .player-wrapper .video-title {
   margin-top: 0.3rem;
