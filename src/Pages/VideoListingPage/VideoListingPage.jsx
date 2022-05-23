@@ -3,12 +3,14 @@ import "./VideoListingPage.css";
 import { useState,useEffect  } from "react";
 import { getVideoServices } from "../../services/getVideoServices";
 import { getCategoryService } from "../../services/getCategoryService";
+import { useVideo } from "../../context";
 
 const VideoListingPage = ({ sideNavShrinked }) => {
   const [isPlaylistModalVisible, setIsPlaylistModalVisible] = useState(false);
   const [playlistVideo, setPlaylistVideo] = useState({})
-  const [allVideo, setAllVideo] = useState([]);
   const [allCategories, setAllCategories] = useState([]);
+
+  const {allVideo, setAllVideo} = useVideo()
 
   useEffect(()=>{
    
