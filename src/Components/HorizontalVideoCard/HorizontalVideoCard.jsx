@@ -1,7 +1,7 @@
 import "./HorizontalVideoCard.css";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { BsTrash } from "react-icons/bs";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useAuth, useHistory, useLike, usePlaylist, useWatchLater } from "../../context";
 import {
   removeFromLikePage,
