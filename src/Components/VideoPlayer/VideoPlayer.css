@@ -39,13 +39,18 @@
   color: var(--link-color);
 }
 .video-stats .video-user-action {
-  display: flex;
-  align-items: center;
   justify-content: space-around;
   gap: 1rem;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
+.video-stats .video-user-action .flex-container{
+  gap: 0.4rem;
+}
+.video-stats .video-user-action .flex-container:hover{
+  color: var(--primary-color);
+}
 .video-creator {
   display: flex;
   align-items: center;
