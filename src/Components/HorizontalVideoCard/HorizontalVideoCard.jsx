@@ -14,7 +14,7 @@ const HorizontalVideoCard = ({ video, playlistID }) => {
   const { authState } = useAuth();
   const { likeDispatch } = useLike();
   const { playlistDispatch } = usePlaylist();
-  const {watchLaterDispatch} = useWatchLater();
+  const { watchLaterDispatch } = useWatchLater();
   const token = authState.token || localStorage.getItem("token");
 
   const removeVideoHandler = () => {
@@ -30,8 +30,8 @@ const HorizontalVideoCard = ({ video, playlistID }) => {
       );
     }
 
-    if(location.pathname === "/watchlater"){
-      removeFromWatchLaterPage(video,token, watchLaterDispatch)
+    if (location.pathname === "/watchlater") {
+      removeFromWatchLaterPage(video, token, watchLaterDispatch);
     }
   };
 
@@ -42,15 +42,16 @@ const HorizontalVideoCard = ({ video, playlistID }) => {
       </Link>
 
       <div className="video-info">
-        <Link to="/singlevideopage">{video.title}</Link>
+        <p className="title">{video.title}</p>
 
-        <p>{video.channelName}</p>
-        <p>
+        <p className="channel-name">{video.channelName}</p>
+        <p className="views-likes">
           {video.views} | {video.likes}
         </p>
       </div>
       {location.pathname === `/playlists/${playlistID}` ||
-      location.pathname === "/liked" || location.pathname === "/watchlater" ? (
+      location.pathname === "/liked" ||
+      location.pathname === "/watchlater" ? (
         <button className="btn dot-btn lg-text" onClick={removeVideoHandler}>
           <BsTrash />
         </button>
