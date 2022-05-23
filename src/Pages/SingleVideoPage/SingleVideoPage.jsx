@@ -9,36 +9,49 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { getSingleVideoService } from "../../services";
 import { useState } from "react";
-import { useVideo } from "../../context";
+import { useAuth, useHistory, useVideo } from "../../context";
 import { getVideoServices } from "../../services";
+import { addVideoToHistoryService } from "../../services/historyServices/addVideoToHistoryService";
 
 const SingleVideoPage = () => {
-  const [singleVideoData, setSingleVideoData] = useState([])
- const {videoID} = useParams();
- const {allVideo,setAllVideo} = useVideo()
+  const [singleVideoData, setSingleVideoData] = useState(false);
+  const { videoID } = useParams();
+  const { allVideo, setAllVideo } = useVideo();
+  const {authState: {token}} = useAuth();
+  const {historyDispatch, historyState: {history}} = useHistory()
 
-useEffect(()=>{
-getSingleVideoService(videoID, setSingleVideoData);
-},[videoID])
+  useEffect(() => {
+    getSingleVideoService(videoID, setSingleVideoData);
+  }, [videoID]);
 
-useEffect(()=>{
-   
-  getVideoServices(setAllVideo);
+  useEffect(() => {
+    getVideoServices(setAllVideo);
+  }, [setAllVideo]);
 
-},[])
+ useEffect(()=>{
+   if(token && singleVideoData){
+    addVideoToHistoryService(token, singleVideoData, historyDispatch,history)
+   }
+ },[token, singleVideoData, historyDispatch,history])
 
   return (
     <>
       <Navbar />
       <SideNav />
-      <div className="main-container play-container">
-        <div className="row">
-          <VideoPlayer videoData = {singleVideoData}/>
-          <div className="right-sidebar">
-          {allVideo.map(video => <HorizontalVideoCard key={video._id} video = {video}/>)}  
+      {singleVideoData ? (
+        <div className="main-container play-container">
+          <div className="row">
+            <VideoPlayer videoData={singleVideoData} />
+            <div className="right-sidebar">
+              {allVideo.map((video) => (
+                <HorizontalVideoCard key={video._id} video={video} />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <h2>Loading...</h2>
+      )}
     </>
   );
 };
