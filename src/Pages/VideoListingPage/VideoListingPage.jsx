@@ -16,7 +16,7 @@ const VideoListingPage = ({ sideNavShrinked }) => {
    
     getVideoServices(setAllVideo);
 
-  },[])
+  },[setAllVideo])
 
  useEffect(()=>{
    getCategoryService(setAllCategories)
