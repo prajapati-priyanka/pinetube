@@ -5,65 +5,37 @@ import {
   SideNav,
   VideoPlayer,
 } from "../../Components";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { getSingleVideoService } from "../../services";
+import { useState } from "react";
+import { useVideo } from "../../context";
+import { getVideoServices } from "../../services";
 
 const SingleVideoPage = () => {
+  const [singleVideoData, setSingleVideoData] = useState([])
+ const {videoID} = useParams();
+ const {allVideo,setAllVideo} = useVideo()
+
+useEffect(()=>{
+getSingleVideoService(videoID, setSingleVideoData);
+},[videoID])
+
+useEffect(()=>{
+   
+  getVideoServices(setAllVideo);
+
+},[])
+
   return (
     <>
       <Navbar />
       <SideNav />
       <div className="main-container play-container">
         <div className="row">
-          <VideoPlayer />
+          <VideoPlayer videoData = {singleVideoData}/>
           <div className="right-sidebar">
-            <HorizontalVideoCard
-              img="../assets/thumbnails/thumbnail.jpg"
-              desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-              videoCreator="The Kapil Sharma Show"
-              likes="23M likes"
-              views="15M views"
-            />
-            <HorizontalVideoCard
-              img="../assets/thumbnails/thumbnail.jpg"
-              desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-              videoCreator="The Kapil Sharma Show"
-              likes="23M likes"
-              views="15M views"
-            />
-            <HorizontalVideoCard
-              img="../assets/thumbnails/thumbnail.jpg"
-              desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-              videoCreator="The Kapil Sharma Show"
-              likes="23M likes"
-              views="15M views"
-            />
-            <HorizontalVideoCard
-              img="../assets/thumbnails/thumbnail.jpg"
-              desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-              videoCreator="The Kapil Sharma Show"
-              likes="23M likes"
-              views="15M views"
-            />
-            <HorizontalVideoCard
-              img="../assets/thumbnails/thumbnail.jpg"
-              desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-              videoCreator="The Kapil Sharma Show"
-              likes="23M likes"
-              views="15M views"
-            />
-            <HorizontalVideoCard
-              img="../assets/thumbnails/thumbnail.jpg"
-              desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-              videoCreator="The Kapil Sharma Show"
-              likes="23M likes"
-              views="15M views"
-            />
-            <HorizontalVideoCard
-              img="../assets/thumbnails/thumbnail.jpg"
-              desc="The Kapil Sharma Show | Baisakhi Special | Comedy Circus"
-              videoCreator="The Kapil Sharma Show"
-              likes="23M likes"
-              views="15M views"
-            />
+          {allVideo.map(video => <HorizontalVideoCard key={video._id} video = {video}/>)}  
           </div>
         </div>
       </div>
