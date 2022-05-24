@@ -50,7 +50,7 @@ const SingleVideoPage = () => {
           </div>
         </div>
       ) : (
-        <h2>Loading...</h2>
+        <h2 className="text-center">Loading...</h2>
       )}
     </>
   );
