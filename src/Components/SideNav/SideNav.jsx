@@ -3,18 +3,30 @@ import {
   MdPlaylistAdd,
   MdOutlineWatchLater,
 } from "react-icons/md";
+
 import { AiOutlineLike } from "react-icons/ai";
 import { BiHistory } from "react-icons/bi";
 import "./SideNav.css";
-import {Link} from "react-router-dom";
+import "../Navbar/Navbar.css"
+import {Link, useLocation} from "react-router-dom";
 import { useSideNav } from "../../context";
 
 const SideNav = () => {
  
-  const {sideNavShrinked} = useSideNav()
+  const {sideNavDisplay} = useSideNav()
+  const location = useLocation();
+  const inSingleVideoPage = () =>{
+    if(location.pathname.includes("/explore")){
+      if(location.pathname !== "/explore"){
+        return true
+      }
+    }
+    return false;
+  }
   
   return (
-    <div className={`side-nav ${sideNavShrinked ? "shrinked" : ""}`}>
+    <div className={`side-nav ${inSingleVideoPage() ? "shrinked" : ""} ${sideNavDisplay ? "showSideNav" : null}`}>
+
       <div className="side-nav-list md-text">
         <Link to="/explore" className="side-nav-link flex-container" title="Explore">
           <MdOutlineExplore className="side-nav-icon" />
