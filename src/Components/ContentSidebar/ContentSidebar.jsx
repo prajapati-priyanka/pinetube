@@ -56,7 +56,7 @@ export const ContentSidebar = ({ videoData, playlistTitle }) => {
         </div>
       </div>
   
-    {location.pathname === "/history" ? (<button className="btn btn-outline-primary clear-all-btn" onClick={()=>deleteAllVideoService(token, historyDispatch)}>CLEAR ALL</button>) : null}  
+    {location.pathname === "/history" && videoData.length > 0 ? (<button className="btn btn-outline-primary clear-all-btn" onClick={()=>deleteAllVideoService(token, historyDispatch)}>CLEAR ALL</button>) : null}  
     </div>
   );
 };
