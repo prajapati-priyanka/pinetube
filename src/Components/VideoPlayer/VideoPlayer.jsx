@@ -1,11 +1,13 @@
 import "./VideoPlayer.css";
 import { MdPlaylistAdd, MdOutlineWatchLater } from "react-icons/md";
 import { AiOutlineLike } from "react-icons/ai";
-import { checkItemInArrayOfObject } from "../../helper/utility-helper";
-import { toggleLikeHandler } from "../../helper/like-helper";
+import {
+  checkItemInArrayOfObject,
+  toggleWatchLaterHandler,
+  toggleLikeHandler,
+} from "../../helper";
 import { useAuth, useLike, useWatchLater } from "../../context";
 import { useNavigate } from "react-router-dom";
-import { toggleWatchLaterHandler } from "../../helper/watchLater-helper";
 import { useState } from "react";
 import { PlaylistModal } from "../Modal/PlaylistModal";
 
@@ -78,41 +80,31 @@ const VideoPlayer = ({ videoData }) => {
         </div>
         <h4 className="video-title">{videoData.title}</h4>
         <div className="video-stats">
-          <p className="video-views-info">{videoData.views} views | 2 days ago</p>
+          <p className="video-views-info">
+            {videoData.views} views | {videoData.likes} likes
+          </p>
           <div className="video-user-action flex-container">
-            <div
-              className="flex-container"
+            <AiOutlineLike
+              className={`lg-text ${
+                isVideoInLikePage && token ? "active-icon" : null
+              }`}
               title="Liked"
               onClick={likeClickHandler}
-            >
-              <AiOutlineLike className="lg-text" />
-              <span>
-                {" "}
-                {isVideoInLikePage && token ? "Remove from Liked" : "Liked"}
-              </span>
-            </div>
+            />
 
-            <div
-              className="flex-container"
+            <MdOutlineWatchLater
+              className={`lg-text ${
+                isVideoInWatchLaterPage && token ? "active-icon" : null
+              }`}
               title="Watch Later"
               onClick={watchLaterHandler}
-            >
-              <MdOutlineWatchLater className="lg-text" />
-              <span>
-                {isVideoInWatchLaterPage && token
-                  ? "Remove from Watch Later"
-                  : "Save to Watch Later"}
-              </span>
-            </div>
+            />
 
-            <div
-              className="flex-container"
+            <MdPlaylistAdd
+              className="lg-text"
               title="Playlist"
               onClick={savePlaylistHandler}
-            >
-              <MdPlaylistAdd className="lg-text" />
-              <span>Playlists</span>
-            </div>
+            />
           </div>
         </div>
         <div className="divider"></div>
