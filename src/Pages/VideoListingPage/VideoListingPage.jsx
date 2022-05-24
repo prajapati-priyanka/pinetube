@@ -3,7 +3,7 @@ import "./VideoListingPage.css";
 import { useState,useEffect  } from "react";
 import { getVideoServices } from "../../services/getVideoServices";
 import { getCategoryService } from "../../services/getCategoryService";
-import { useSideNav, useVideo } from "../../context";
+import { useVideo } from "../../context";
 
 const VideoListingPage = () => {
   const [isPlaylistModalVisible, setIsPlaylistModalVisible] = useState(false);
