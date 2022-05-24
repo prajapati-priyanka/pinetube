@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 const Navbar = () =>{
 
-  const {setSideNavShrinked} = useSideNav();
+  const {setSideNavDisplay} = useSideNav();
   const {authState, authDispatch} = useAuth()
   const navigate = useNavigate();
  const token = authState.token || localStorage.getItem("token");
@@ -23,8 +23,8 @@ const Navbar = () =>{
     return(
         <nav className="nav-wrapper flex-container">
         <section className="nav-left flex-container">
-          <HiOutlineMenu className="menu-bar lg-text" onClick={()=> setSideNavShrinked(sideNavShrinked => !sideNavShrinked)}/>
-          <img src="../assets/logo.png" className="logo-img" alt="" />
+          <HiOutlineMenu className="menu-bar lg-text" onClick={()=> setSideNavDisplay(sideNavDisplay => !sideNavDisplay)}/>
+          <img src="../assets/logo.png" className="logo-img" alt="logo-name" onClick={()=>navigate("/")} />
          
         </section>
         <section className="nav-middle">
