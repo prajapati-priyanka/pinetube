@@ -13,6 +13,7 @@
 }
 .nav-wrapper .nav-left .menu-bar{
     cursor: pointer;
+    display: none;
 }
 
 .nav-wrapper .nav-left .logo-img{
@@ -52,3 +53,12 @@
 .nav-right:hover{
     color: var(--primary-color);
 }
+
+@media screen and (max-width: 960px) {
+    .nav-wrapper .nav-left .menu-bar{
+        cursor: pointer;
+        display: block;
+    }
+    
+  }
+

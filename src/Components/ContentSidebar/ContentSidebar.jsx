@@ -1,8 +1,14 @@
 import { useLocation } from "react-router-dom";
+import { useAuth, useHistory } from "../../context";
+import "./ContentSidebar.css";
+import { deleteAllVideoService } from "../../services/historyServices/deleteAllVideoService";
 
 export const ContentSidebar = ({ videoData, playlistTitle }) => {
 
   const location = useLocation();
+  const {authState} = useAuth();
+  const {historyDispatch} = useHistory();
+ const token = authState.token || localStorage.getItem("token") 
 
   const getPageName = () => {
     if (location.pathname === "/liked") {
@@ -12,6 +18,8 @@ export const ContentSidebar = ({ videoData, playlistTitle }) => {
       return playlistTitle;
     }
   };
+
+ 
 
   return (
     <div className="playlist-left-content">
@@ -47,6 +55,8 @@ export const ContentSidebar = ({ videoData, playlistTitle }) => {
           <span className="channel-subscribers">50K subscribers</span>
         </div>
       </div>
+  
+    {location.pathname === "/history" && videoData.length > 0 ? (<button className="btn btn-outline-primary clear-all-btn" onClick={()=>deleteAllVideoService(token, historyDispatch)}>CLEAR ALL</button>) : null}  
     </div>
   );
 };

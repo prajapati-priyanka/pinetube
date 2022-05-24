@@ -21,7 +21,8 @@ const VideoMenu = ({
   const navigate = useNavigate();
   const token = authState.token || localStorage.getItem("token");
 
-  const saveToPlaylistHandler = () => {
+  const saveToPlaylistHandler = (e) => {
+    e.stopPropagation()
     if (token) {
       setIsPlaylistModalVisible(true);
       setIsVideoMenuVisible(false);
@@ -34,12 +35,14 @@ const VideoMenu = ({
   const isVideoInLikePage = checkItemInArrayOfObject(likeData, videos)
   const isVideoInWatchLaterPage = checkItemInArrayOfObject(watchLater, videos)
 
-  const likeClickHandler = () => {
+  const likeClickHandler = (e) => {
+    e.stopPropagation();
     setIsVideoMenuVisible(false);
     toggleLikeHandler(token, likeDispatch, isVideoInLikePage, navigate, videos);
   };
 
-  const watchLaterHandler = () =>{
+  const watchLaterHandler = (e) =>{
+    e.stopPropagation();
     setIsVideoMenuVisible(false);
     toggleWatchLaterHandler(token, watchLaterDispatch, isVideoInWatchLaterPage, navigate,videos )
   }

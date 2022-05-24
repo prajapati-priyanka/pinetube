@@ -1,6 +1,4 @@
-import { addToLikePage } from "../services/likeServices/addToLikePage"
-import { removeFromLikePage } from "../services/likeServices/removeFromLikePage"
-
+import { addToLikePage,removeFromLikePage } from "../services";
 
 export const toggleLikeHandler = (token,likeDispatch, isVideoInLikePage, navigate, videos)=>{
 

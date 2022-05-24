@@ -24,26 +24,19 @@
 .video-info {
   color: var(--link-color);
   font-weight: var(--semibold-font);
-  font-size: 13px;
- 
-}
-.video-info a {
+ }
+
+.video-info .title {
   color: var(--black-color);
-  font-size: 13px;
-  display: block;
+  font-size: 14px;
   margin-bottom: 0.5rem;
 }
-.video-info p {
+
+.video-info .channel-name, .views-likes {
   margin: 0.3rem 0;
+  font-size: 13px;
 }
 
-/* style from CL */
-
-a {
-  padding: 0;
-}
-
-/*  ****     */
 
 /**** Video Menu ****/
 

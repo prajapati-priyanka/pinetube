@@ -1,20 +1,20 @@
 import "./HorizontalVideoCard.css";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { BsTrash } from "react-icons/bs";
-import { Link, useLocation } from "react-router-dom";
-import { useAuth, useLike, usePlaylist, useWatchLater } from "../../context";
+import { useLocation } from "react-router-dom";
+import { useAuth, useHistory, useLike, usePlaylist, useWatchLater } from "../../context";
 import {
   removeFromLikePage,
-  deleteVideoFromSinglePlaylistPage,
+  deleteVideoFromSinglePlaylistPage, removeFromWatchLaterPage, removeFromHistoryPage 
 } from "../../services";
-import { removeFromWatchLaterPage } from "../../services/watchLaterServices/removeFromWatchLaterPage";
 
 const HorizontalVideoCard = ({ video, playlistID }) => {
   const location = useLocation();
   const { authState } = useAuth();
   const { likeDispatch } = useLike();
   const { playlistDispatch } = usePlaylist();
-  const {watchLaterDispatch} = useWatchLater();
+  const { watchLaterDispatch } = useWatchLater();
+  const {historyDispatch} = useHistory();
   const token = authState.token || localStorage.getItem("token");
 
   const removeVideoHandler = () => {
@@ -30,27 +30,31 @@ const HorizontalVideoCard = ({ video, playlistID }) => {
       );
     }
 
-    if(location.pathname === "/watchlater"){
-      removeFromWatchLaterPage(video,token, watchLaterDispatch)
+    if (location.pathname === "/watchlater") {
+      removeFromWatchLaterPage(video, token, watchLaterDispatch);
+    }
+    if (location.pathname === "/history") {
+      removeFromHistoryPage(video, token, historyDispatch);
     }
   };
 
   return (
     <div className="horizontal-video-card">
-      <Link to="/singlevideopage">
+      
         <img src={video.videoThumbnail} alt="" className="thumbnail" />
-      </Link>
+      
 
       <div className="video-info">
-        <Link to="/singlevideopage">{video.title}</Link>
+        <p className="title">{video.title}</p>
 
-        <p>{video.channelName}</p>
-        <p>
+        <p className="channel-name">{video.channelName}</p>
+        <p className="views-likes">
           {video.views} | {video.likes}
         </p>
       </div>
       {location.pathname === `/playlists/${playlistID}` ||
-      location.pathname === "/liked" || location.pathname === "/watchlater" ? (
+      location.pathname === "/liked" ||
+      location.pathname === "/watchlater" || location.pathname === "/history" ? (
         <button className="btn dot-btn lg-text" onClick={removeVideoHandler}>
           <BsTrash />
         </button>

@@ -1,25 +1,22 @@
-.play-container{
-    padding-left: 8rem;
+.play-container {
+  padding-left: 8rem;
 }
 
-.row{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2.5rem;
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
 }
-.right-sidebar{
-    flex-basis: 32%;
-
+.right-sidebar {
+  flex-basis: 32%;
 }
 
 @media screen and (max-width: 960px) {
-   
-    .play-container {
-      padding-left: 2rem;
-    }
-    .right-sidebar {
-      flex-basis: 100%;
-      margin-top: 2rem;
-    }
+  .play-container {
+    padding-left: 2rem;
   }
-
+  .right-sidebar {
+    flex-basis: 100%;
+    margin-top: 2rem;
+  }
+}
