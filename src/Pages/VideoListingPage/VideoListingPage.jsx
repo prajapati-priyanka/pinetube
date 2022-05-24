@@ -3,14 +3,15 @@ import "./VideoListingPage.css";
 import { useState,useEffect  } from "react";
 import { getVideoServices } from "../../services/getVideoServices";
 import { getCategoryService } from "../../services/getCategoryService";
-import { useVideo } from "../../context";
+import { useSideNav, useVideo } from "../../context";
 
-const VideoListingPage = ({ sideNavShrinked }) => {
+const VideoListingPage = () => {
   const [isPlaylistModalVisible, setIsPlaylistModalVisible] = useState(false);
   const [playlistVideo, setPlaylistVideo] = useState({})
   const [allCategories, setAllCategories] = useState([]);
 
   const {allVideo, setAllVideo} = useVideo()
+
 
   useEffect(()=>{
    
@@ -25,9 +26,7 @@ const VideoListingPage = ({ sideNavShrinked }) => {
   return (
     <>
     <div
-      className={`main-container ${
-        sideNavShrinked ? "expand-main-container" : ""
-      }`}
+      className="main-container"
     >
           <CategoryBar allCategories ={allCategories} />
   
