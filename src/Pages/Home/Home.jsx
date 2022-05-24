@@ -1,14 +1,18 @@
+import { useState } from "react";
 import { Navbar,SideNav} from "../../Components";
 import { VideoListingPage } from "../VideoListingPage/VideoListingPage";
 import "./Home.css";
 
 const Home = () => {
- 
+   const [searchData, setSearchData] = useState("");
+
+
+
   return (
          <>
-         <Navbar />
+         <Navbar searchData={searchData} setSearchData={setSearchData} />
          <SideNav />
-         <VideoListingPage />
+         <VideoListingPage searchData={searchData} setSearchData={setSearchData} />
          </>
   );
 };
