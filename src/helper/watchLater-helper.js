@@ -1,5 +1,4 @@
-import { addToWatchLaterPage } from "../services/watchLaterServices/addToWatchLaterPage"
-import { removeFromWatchLaterPage } from "../services/watchLaterServices/removeFromWatchLaterPage"
+import { addToWatchLaterPage,removeFromWatchLaterPage } from "../services";
 
 export const toggleWatchLaterHandler = (token, watchLaterDispatch, isVideoInWatchLaterPage,navigate, videos) =>{
 
