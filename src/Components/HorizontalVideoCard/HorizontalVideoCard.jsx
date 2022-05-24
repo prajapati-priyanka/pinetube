@@ -5,10 +5,8 @@ import { useLocation } from "react-router-dom";
 import { useAuth, useHistory, useLike, usePlaylist, useWatchLater } from "../../context";
 import {
   removeFromLikePage,
-  deleteVideoFromSinglePlaylistPage,
+  deleteVideoFromSinglePlaylistPage, removeFromWatchLaterPage, removeFromHistoryPage 
 } from "../../services";
-import { removeFromWatchLaterPage } from "../../services/watchLaterServices/removeFromWatchLaterPage";
-import { removeFromHistoryPage } from "../../services/historyServices/removeFromHistoryPage";
 
 const HorizontalVideoCard = ({ video, playlistID }) => {
   const location = useLocation();
