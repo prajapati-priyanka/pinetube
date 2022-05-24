@@ -1,13 +1,11 @@
 import { createContext,useContext, useState } from "react";
 
-
-
 const SideNavContext = createContext();
 
 const SideNavProvider = ({children}) =>{
-    const [sideNavShrinked, setSideNavShrinked] = useState(false)
+    const [sideNavDisplay, setSideNavDisplay] = useState(false)
     return(
-        <SideNavContext.Provider value={{sideNavShrinked, setSideNavShrinked}}>
+        <SideNavContext.Provider value={{sideNavDisplay, setSideNavDisplay}}>
             {children}
         </SideNavContext.Provider>
     )
