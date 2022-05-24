@@ -5,7 +5,10 @@ export const getCategoryService = async(setAllCategories) =>{
       try {
           const response = await axios.get("/api/categories");
           if(response.status === 200){
-              setAllCategories(response.data.categories)
+              setAllCategories(allCategory => ({
+                  ...allCategory,
+                  categories: response.data.categories
+              }))
           }else{
             throw new Error("Request Failed, Can't get Data");
           }
