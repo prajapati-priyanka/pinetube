@@ -11,6 +11,7 @@ import {
 import { checkItemInArrayOfObject } from "../../helper/utility-helper";
 import { toggleWatchLaterHandler } from "../../helper/watchLater-helper";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const PlaylistModal = ({ setIsPlaylistModalVisible, playlistVideo }) => {
   const [isCreatePlaylistInputVisible, setIsCreatePlaylistInputVisible] =
@@ -36,12 +37,13 @@ const PlaylistModal = ({ setIsPlaylistModalVisible, playlistVideo }) => {
   const createPlaylistHandler = () => {
     if (!isCreatePlaylistInputVisible) {
       setIsCreatePlaylistInputVisible(true);
-    }
-    if (
+    } else if (
       newPlaylistData.title.trim() !== "" &&
       playlists.findIndex((item) => item.title === newPlaylistData.title) === -1
     ) {
       createNewPlaylistService(token, newPlaylistData, playlistDispatch);
+    } else {
+      toast.warning("Playlists name cannot be same");
     }
 
     setNewPlaylistData({ title: "", description: "" });
