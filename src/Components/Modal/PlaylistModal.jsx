@@ -38,10 +38,8 @@ const PlaylistModal = ({ setIsPlaylistModalVisible, playlistVideo }) => {
       setIsCreatePlaylistInputVisible(true);
     }
     if (
-      newPlaylistData.title !== "" &&
-      playlists.findIndex(
-        (item) => (item.title !== newPlaylistData.title) === -1
-      )
+      newPlaylistData.title.trim() !== "" &&
+      playlists.findIndex((item) => item.title === newPlaylistData.title) === -1
     ) {
       createNewPlaylistService(token, newPlaylistData, playlistDispatch);
     }
@@ -53,25 +51,16 @@ const PlaylistModal = ({ setIsPlaylistModalVisible, playlistVideo }) => {
     setNewPlaylistData({ ...newPlaylistData, title: e.target.value });
   };
 
-  const checkIsVideoInPlaylist = (playlistId) => {
-    const isPlaylistExist = playlists.find((item) => item._id === playlistId);
-
-    if (isPlaylistExist) {
-      return isPlaylistExist.videos.some(
-        (item) => item._id === playlistVideo._id
-      );
-    } else {
-      return false;
-    }
+  const checkIsVideoInPlaylist = (_id) => {
+    const playlist = playlists.find((item) => item._id === _id);
+    return playlist.videos.some((item) => item._id === playlistVideo._id);
   };
 
-  const CheckPlaylistInputHandler = (e) => {
-    const { checked, id } = e.target;
-
-    if (checked) {
-      addVideoToPlaylist(token, id, playlistVideo, playlistDispatch);
+  const CheckPlaylistInputHandler = (_id) => {
+    if (checkIsVideoInPlaylist(_id)) {
+      removeVideoFromPlaylist(token, _id, playlistVideo, playlistDispatch);
     } else {
-      removeVideoFromPlaylist(token, id, playlistVideo, playlistDispatch);
+      addVideoToPlaylist(token, _id, playlistVideo, playlistDispatch);
     }
   };
 
@@ -124,9 +113,9 @@ const PlaylistModal = ({ setIsPlaylistModalVisible, playlistVideo }) => {
                   <input
                     type="checkbox"
                     className="input-check"
-                    id={item._id}
+                    id={item.title}
                     checked={checkIsVideoInPlaylist(item._id)}
-                    onChange={CheckPlaylistInputHandler}
+                    onChange={() => CheckPlaylistInputHandler(item._id)}
                   />
                   <label htmlFor={item._id} className="md-text">
                     {item.title}
