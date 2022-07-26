@@ -21,3 +21,9 @@
     color: var(--white-color);
     border: 1px solid var(--black-color);
 }
+
+.active-category:hover{
+    background-color: var(--black-color);
+    color: var(--white-color);
+    border: 1px solid var(--black-color);
+}
