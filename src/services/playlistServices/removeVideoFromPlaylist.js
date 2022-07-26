@@ -16,7 +16,10 @@ export const removeVideoFromPlaylist = async (
     if (response.status === 200) {
       playlistDispatch({
         type: "REMOVE_FROM_PLAYLIST",
-        payload: response.data.playlist,
+        payload: {
+          playlistId: response.data.playlist._id,
+          playlistData: response.data.playlist,
+        },
       });
       toast.error("Video removed from playlist");
     }
