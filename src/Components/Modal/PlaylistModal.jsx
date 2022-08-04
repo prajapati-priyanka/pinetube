@@ -34,16 +34,21 @@ const PlaylistModal = ({ setIsPlaylistModalVisible, playlistVideo }) => {
 
   const token = authState.token || localStorage.getItem("token");
 
+  const checkPlaylistName = (title) => {
+    if (playlists.find((item) => item.title === title)) {
+      toast.warning("Playlist with same title exists.");
+    } else if (title.trim() === "") {
+      toast.warning("Playlist name is required.");
+    } else {
+      return true;
+    }
+  };
+
   const createPlaylistHandler = () => {
     if (!isCreatePlaylistInputVisible) {
       setIsCreatePlaylistInputVisible(true);
-    } else if (
-      newPlaylistData.title.trim() !== "" &&
-      playlists.findIndex((item) => item.title === newPlaylistData.title) === -1
-    ) {
+    } else if (checkPlaylistName(newPlaylistData.title)) {
       createNewPlaylistService(token, newPlaylistData, playlistDispatch);
-    } else {
-      toast.warning("Playlists name cannot be same");
     }
 
     setNewPlaylistData({ title: "", description: "" });
