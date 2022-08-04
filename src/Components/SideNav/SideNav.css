@@ -20,7 +20,7 @@
 .side-nav .side-nav-link:hover{
 
     border-left: 4px solid var(--primary-color) ;
-    background-color: var(--lynx-white-color);
+    background-color: rgba(0, 0, 0, 0.05);
 
 }
 .side-nav .side-nav-link .side-nav-icon{
