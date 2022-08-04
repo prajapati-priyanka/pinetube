@@ -27,7 +27,7 @@ const PlaylistPage = () => {
       <SideNav />
 
       <div className="main-container">
-        <h3 className="page-title">Playlist</h3>
+        <h3 className="page-title text-center">Playlist</h3>
 
         {playlists.length > 0 ? (
           playlists.map((playlist) => (
@@ -53,9 +53,14 @@ const PlaylistPage = () => {
             </div>
           ))
         ) : (
-          <Link to="/explore">
-            <button className="btn btn-primary">Explore</button>
-          </Link>
+          <div className="explore-btn">
+            <button
+              className="btn btn-primary lg-text"
+              onClick={() => navigate("/explore")}
+            >
+              Explore
+            </button>
+          </div>
         )}
       </div>
     </>
