@@ -85,7 +85,7 @@ const VideoPlayer = ({ videoData }) => {
           </p>
           <div className="video-user-action flex-container">
             <AiOutlineLike
-              className={`lg-text ${
+              className={`lg-text like-btn ${
                 isVideoInLikePage && token ? "active-icon" : null
               }`}
               title="Liked"
@@ -93,7 +93,7 @@ const VideoPlayer = ({ videoData }) => {
             />
 
             <MdOutlineWatchLater
-              className={`lg-text ${
+              className={`lg-text watch-later-btn ${
                 isVideoInWatchLaterPage && token ? "active-icon" : null
               }`}
               title="Watch Later"
@@ -101,9 +101,9 @@ const VideoPlayer = ({ videoData }) => {
             />
 
             <MdPlaylistAdd
-              className="lg-text"
+              className="lg-text playlist-btn"
               title="Playlist"
-              onClick={savePlaylistHandler}
+              onClick={savePlaylistHandler} 
             />
           </div>
         </div>

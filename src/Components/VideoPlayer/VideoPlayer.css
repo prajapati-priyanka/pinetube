@@ -43,7 +43,7 @@
   font-size: 1.5rem;
   cursor: pointer;
 }
-.video-stats .video-user-action:hover{
+.video-stats .video-user-action .like-btn:hover, .watch-later-btn:hover, .playlist-btn:hover{
   color: var(--primary-color);
 }
 
