@@ -26,5 +26,6 @@ li{
 
 :root{
     --primary-color: #c00;
+    --dark-primary-color: #a30000;
     --hashtag-color: #065fd4;
 }
