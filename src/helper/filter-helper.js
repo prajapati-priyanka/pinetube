@@ -4,7 +4,7 @@ export const categoryData = (allVideo, selectedCategory)=>{
 
  export const searchVideoData = (allVideo, searchData)=>{
     if(searchData){
-      return allVideo.filter(video => video.title.toLowerCase().includes(searchData.trim().toLowerCase()));
+      return allVideo.filter(video => video.channelName.toLowerCase().includes(searchData.trim().toLowerCase()));
     }
     return allVideo;
   }
