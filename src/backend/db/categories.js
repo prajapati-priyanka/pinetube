@@ -19,6 +19,6 @@ export const categories = [
   },
   {
     _id: uuid(),
-    categoryName: "TED TALKS",
+    categoryName: "Ted Talks",
   },
 ];

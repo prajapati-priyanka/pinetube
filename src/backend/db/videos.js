@@ -130,7 +130,7 @@ export const videos = [
     videoLength:"17:51",
     channelThumbnail: "https://yt3.ggpht.com/ytc/AKedOLSAltH3yarKh0eytWLSLtB9-kPpMLM5EejH-GAZIg=s88-c-k-c0x00ffffff-no-rj",
     videoThumbnail: "https://img.youtube.com/vi/0NV1KdWRHck/sddefault.jpg",
-    category: "TED TALKS",
+    category: "Ted Talks",
     subscribers:"21.2M"
 
   },
@@ -143,7 +143,7 @@ export const videos = [
     videoLength:"17:02",
     channelThumbnail: "https://yt3.ggpht.com/ytc/AKedOLQGnY6McntoY-eWaRDI047FWFqj7pVlw2nBfkwz7w=s88-c-k-c0x00ffffff-no-rj",
     videoThumbnail: "https://img.youtube.com/vi/42cwiP25ChI/sddefault.jpg",
-    category: "TED TALKS",
+    category: "Ted Talks",
     subscribers:"34.8M"
 
   },
@@ -156,7 +156,7 @@ export const videos = [
     videoLength:"17:57",
     channelThumbnail: "https://yt3.ggpht.com/ytc/AKedOLQGnY6McntoY-eWaRDI047FWFqj7pVlw2nBfkwz7w=s88-c-k-c0x00ffffff-no-rj",
     videoThumbnail: "https://img.youtube.com/vi/Hp0vG274DAM/sddefault.jpg",
-    category: "TED TALKS",
+    category: "Ted Talks",
     subscribers:"34.8M"
 
   },
