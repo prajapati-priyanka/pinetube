@@ -37,7 +37,6 @@ const Login = () => {
       alert("email & password cannot be empty");
     } else {
       loginService(user, authDispatch, navigate,location);
-      navigate("/")
     }
   };
 
