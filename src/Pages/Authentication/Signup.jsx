@@ -3,7 +3,7 @@ import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./Authentication.css";
 import { useAuth } from "../../context";
-import {Link,useLocation,useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { checkIfAllInputIsPresent } from "../../helper/auth-helper";
 import { signupService } from "../../services/authServices";
 import { toast } from "react-toastify";
@@ -18,7 +18,6 @@ const Signup = () => {
     email: "",
     password: "",
     confirmPass: "",
-
   });
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -32,23 +31,18 @@ const Signup = () => {
   const checkPassword = (confirmPass) => {
     if (userData.password === confirmPass) {
       setError("");
-    
     } else {
       setError("Password and Confirm Password Doesn't Match");
-    
     }
   };
 
   const signupHandler = async (e) => {
     e.preventDefault();
-    if(!checkIfAllInputIsPresent(userData)){
-      toast.error("All fields should be filled")
+    if (!checkIfAllInputIsPresent(userData)) {
+      toast.error("All fields should be filled");
+    } else {
+      signupService(userData, authDispatch, navigate, location);
     }
-    else{
-        signupService(userData, authDispatch, navigate,location)
-       
-    }
-   
   };
   return (
     <div>
@@ -64,7 +58,6 @@ const Signup = () => {
               type="text"
               id="fname"
               placeholder="First Name"
-           
               name="firstName"
               value={userData.firstName}
               onChange={(e) => onChangeHandler(e)}
@@ -74,7 +67,6 @@ const Signup = () => {
               type="text"
               id="lname"
               placeholder="Last Name"
-           
               name="lastName"
               value={userData.lastName}
               onChange={(e) => onChangeHandler(e)}
@@ -84,7 +76,6 @@ const Signup = () => {
               type="email"
               id="email"
               placeholder="tanaypratap@neog.camp"
-           
               name="email"
               value={userData.email}
               onChange={(e) => onChangeHandler(e)}
@@ -95,7 +86,6 @@ const Signup = () => {
                 type={showPassword ? "type" : "password"}
                 id="pass"
                 placeholder="*******"
-             
                 name="password"
                 value={userData.password}
                 onChange={(e) => onChangeHandler(e)}
@@ -113,12 +103,11 @@ const Signup = () => {
                 type={showConfirmPassword ? "type" : "password"}
                 id="confirm-pass"
                 placeholder="*******"
-         
                 name="confirmPass"
                 value={userData.confirmPass}
                 onChange={(e) => {
-                    onChangeHandler(e)
-                    checkPassword(e.target.value)
+                  onChangeHandler(e);
+                  checkPassword(e.target.value);
                 }}
               />
               <span
