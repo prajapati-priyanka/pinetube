@@ -4,6 +4,7 @@ import "./Authentication.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context";
 import { loginService } from "../../services/authServices";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const { authDispatch } = useAuth();
@@ -34,9 +35,9 @@ const Login = () => {
     e.preventDefault();
 
     if (user.email === "" || user.password === "") {
-      alert("email & password cannot be empty");
+      toast.warning("Email & Password cannot be empty");
     } else {
-      loginService(user, authDispatch, navigate,location);
+      loginService(user, authDispatch, navigate, location);
     }
   };
 
