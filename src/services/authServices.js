@@ -22,7 +22,7 @@ export const loginService = async (user,authDispatch,navigate,location) =>{
             payload: { user: foundUser, token: token },
           });
            toast.success("You are Succesfully Logged In")
-           navigate(location?.state?.from?.pathname || -1, { replace: true });
+           navigate(location?.state?.from?.pathname || "/explore", { replace: true });
         } else {
           throw new Error("Can't process the request, Please try again later");
         }
@@ -44,7 +44,7 @@ export const signupService = async(userData, authDispatch, navigate,location) =>
               payload: { user: createdUser, token: token },
             });
             toast.success("You account is successfully created")
-            navigate(location?.state?.from?.pathname || -1, { replace: true });
+            navigate(location?.state?.from?.pathname || "/explore", { replace: true });
           }
         } catch (err) {
           console.log(err);
