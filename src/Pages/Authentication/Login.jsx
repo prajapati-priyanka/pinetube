@@ -21,8 +21,8 @@ const Login = () => {
   };
 
   const guestUser = {
-    email: "adarshbalika@gmail.com",
-    password: "adarshBalika123",
+    email: "test123@gmail.com",
+    password: "testing123",
   };
 
   const guestLoginHandler = (e) => {
